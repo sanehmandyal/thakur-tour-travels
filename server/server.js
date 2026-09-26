@@ -89,7 +89,7 @@ async function autoSeedIfEmpty() {
     const destCount = await M.Destination.countDocuments();
     if (destCount === 0) {
       console.log('Seeding initial destinations, vehicles, and tours...');
-      const { INITIAL_DESTINATIONS, INITIAL_VEHICLES, INITIAL_TOURS, DEFAULT_SETTINGS } = require('../client/src/services/mockData');
+      const { INITIAL_DESTINATIONS, INITIAL_VEHICLES, INITIAL_TOURS, DEFAULT_SETTINGS } = require('./seed/seedData');
       if (DEFAULT_SETTINGS) await M.Settings.create(DEFAULT_SETTINGS);
       if (INITIAL_DESTINATIONS) await M.Destination.insertMany(INITIAL_DESTINATIONS.map(({ _id, ...d }) => d));
       if (INITIAL_VEHICLES) await M.Vehicle.insertMany(INITIAL_VEHICLES.map(({ _id, ...v }) => v));
