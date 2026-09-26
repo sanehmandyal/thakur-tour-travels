@@ -7,7 +7,7 @@ import {
   DEFAULT_SETTINGS
 } from './mockData';
 
-const STORE_VERSION = 'v2026_unique_fleet_v5';
+const STORE_VERSION = 'v2026_expanded_fleet_v6';
 
 const STORE_DEFAULTS = {
   vehicles: INITIAL_VEHICLES,

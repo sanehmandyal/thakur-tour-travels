@@ -8,29 +8,36 @@ export const VEHICLE_IMAGES = {
   hycross: '/images/cars/hycross.jpg',
   ertiga: '/images/cars/ertiga.jpg',
   scorpio: '/images/cars/scorpio.jpg',
-  thar: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Mahindra_Thar_SUV_in_%22Red_Rage%22_color_at_Ashiana_Brahmanda%2C_East_Singbhum_India_%28Ank_Kumar%2C_Infosys_limited%29_03.jpg',
-  cruiser: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Mahindra_Bolero_GLX_Front.JPG',
-  trax: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Mahindra_Bolero_Camper_double-cab_truck_in_Pakxe_Laos.jpg',
+  thar: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80',
+  cruiser: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
+  trax: 'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=1200&q=80',
   fortuner: '/images/cars/fortuner.jpg',
   carens: '/images/cars/carens.jpg',
-  tempo12: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Force_Traveller_Luxury.jpg',
-  tempo17: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Force_Traveller%2C_Leh-Manali_Highway.jpg',
+  creta: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1200&q=80',
+  xuv700: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+  safari: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80',
+  harrier: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80',
+  rumion: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80',
+  grandvitara: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80',
+  boleroneo: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80',
+  tempo12: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80',
+  tempo17: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
   tempo26: '/images/cars/tempo_traveller.jpg',
-  tempo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Force_Traveller_Luxury.jpg',
-  urbania: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
+  tempo: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80',
+  urbania: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80',
   sedan: '/images/cars/dzire.jpg',
   defaultCar: '/images/cars/innova_crysta.jpg'
 };
 
 export const DESTINATION_IMAGES = {
-  chintpurni: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Chintpurni.jpg',
-  jawalaji: 'https://upload.wikimedia.org/wikipedia/commons/8/80/Jawala_Ji_Temple.jpg',
-  chamunda: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Shri_Chamunda_Devi_Mandir.jpg',
-  baglamukhi: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/BaijNath.jpg',
-  manikaran: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Gurudwara_Manikaran_Sahib.jpg',
-  anandpur: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Takht_Sri_Keshgarh_Sahib%2C_Anandpur_Sahib.jpg',
+  chintpurni: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80',
+  jawalaji: 'https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=80',
+  chamunda: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
+  baglamukhi: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+  manikaran: 'https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1200&q=80',
+  anandpur: 'https://images.unsplash.com/photo-1565019004944-9f798835848c?auto=format&fit=crop&w=1200&q=80',
   amritsar: 'https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&w=1200&q=80',
-  manali: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Hadimba_Temple.jpg',
+  manali: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80',
   shimla: 'https://images.unsplash.com/photo-1597074866923-dc0589150358?auto=format&fit=crop&w=1200&q=80',
   dharamshala: 'https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=1200&q=80',
   dalhousie: 'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1200&q=80',
@@ -41,7 +48,7 @@ export const DESTINATION_IMAGES = {
   birbilling: 'https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=1200&q=80',
   ladakh: 'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=1200&q=80',
   chandigarh: 'https://images.unsplash.com/photo-1582650625119-3a31f8418b7d?auto=format&fit=crop&w=1200&q=80',
-  defaultDest: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Chintpurni.jpg'
+  defaultDest: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80'
 };
 
 export function getVehicleImage(vehicle) {
@@ -54,6 +61,13 @@ export function getVehicleImage(vehicle) {
   if (name.includes('17') && (name.includes('tempo') || name.includes('traveller') || name.includes('yatra'))) return VEHICLE_IMAGES.tempo17;
   if (name.includes('26') && (name.includes('tempo') || name.includes('traveller') || name.includes('coach'))) return VEHICLE_IMAGES.tempo26;
   if (name.includes('tempo') || name.includes('traveller')) return VEHICLE_IMAGES.tempo;
+  if (name.includes('creta')) return VEHICLE_IMAGES.creta;
+  if (name.includes('xuv700') || name.includes('xuv')) return VEHICLE_IMAGES.xuv700;
+  if (name.includes('safari')) return VEHICLE_IMAGES.safari;
+  if (name.includes('harrier')) return VEHICLE_IMAGES.harrier;
+  if (name.includes('rumion')) return VEHICLE_IMAGES.rumion;
+  if (name.includes('vitara') || name.includes('grand vitara')) return VEHICLE_IMAGES.grandvitara;
+  if (name.includes('neo') || (name.includes('bolero') && name.includes('plus'))) return VEHICLE_IMAGES.boleroneo;
   if (name.includes('thar')) return VEHICLE_IMAGES.thar;
   if (name.includes('toofan') || name.includes('trax')) return VEHICLE_IMAGES.trax;
   if (name.includes('cruiser') || name.includes('camper') || name.includes('bolero')) return VEHICLE_IMAGES.cruiser;

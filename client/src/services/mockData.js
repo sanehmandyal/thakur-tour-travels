@@ -69,7 +69,7 @@ export const INITIAL_VEHICLES = [
     tag: 'Spiti, Rohtang Snow & Off-Road Icon',
     seatingCapacity: '4 Passengers (Including Driver)',
     luggageCapacity: '2 Duffel Bags + Rear Storage',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Mahindra_Thar_SUV_in_%22Red_Rage%22_color_at_Ashiana_Brahmanda%2C_East_Singbhum_India_%28Ank_Kumar%2C_Infosys_limited%29_03.jpg',
+    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80',
     features: [
       'Authentic 4x4 Low-Ratio Gearbox & Mechanical Locking Differential',
       'High Ground Clearance (226mm) & All-Terrain Snow Tires',
@@ -109,7 +109,7 @@ export const INITIAL_VEHICLES = [
     tag: 'High-Traction 9-Seater Himalayan Workhorse',
     seatingCapacity: '9 Passengers + 1 Chauffeur',
     luggageCapacity: '6 Large Bags + Heavy Roof Carrier',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Mahindra_Bolero_GLX_Front.JPG',
+    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
     features: [
       'Metal Solid Bumper & Reinforced Mountain Leaf Springs',
       'High Ground Clearance (180mm) for Harsh Hill Roads',
@@ -129,7 +129,7 @@ export const INITIAL_VEHICLES = [
     tag: 'Heavy-Duty Mountain People Mover',
     seatingCapacity: '12 to 13 Passengers + 1 Chauffeur',
     luggageCapacity: '8+ Bags + Heavy-Duty Top Carrier',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Mahindra_Bolero_Camper_double-cab_truck_in_Pakxe_Laos.jpg',
+    image: 'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=1200&q=80',
     features: [
       'Reinforced High-Torque Mercedes-Derived Engine',
       'High Ground Clearance for Rugged Mountain Terrains',
@@ -144,6 +144,146 @@ export const INITIAL_VEHICLES = [
   },
   {
     _id: 'veh-7',
+    name: 'Hyundai Creta SX (Executive Mountain SUV)',
+    vehicleType: 'Executive 5-Seater SUV',
+    tag: 'Comfortable Hill Cruiser & City Taxi',
+    seatingCapacity: '4 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + 2 Handbags',
+    image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1200&q=80',
+    features: [
+      'Panoramic Sunroof & Voice-Enabled Climate Control',
+      'Plush Leatherette Upholstery & Bose 8-Speaker Audio',
+      'High Ground Clearance (190mm) with Hill-Start Assist',
+      'Rear AC Vents & Dedicated USB Charging Ports',
+      'Smooth Automatic / Diesel Power for Hill Ascents'
+    ],
+    suitability: 'Ideal for couples, executive business travelers, and small families wanting modern SUV luxury for Shimla, Manali & Dharamshala.',
+    idealRoutes: 'Chandigarh / Delhi to Shimla, Kasauli, Manali, Dalhousie',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-8',
+    name: 'Mahindra XUV700 AX7 Luxury AWD',
+    vehicleType: 'Luxury 7-Seater AWD SUV',
+    tag: 'Flagship All-Wheel Drive Hill Tourer',
+    seatingCapacity: '6 Passengers + 1 Chauffeur',
+    luggageCapacity: '4 Large Bags + Top Carrier',
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
+    features: [
+      'Intelligent All-Wheel Drive (AWD) for Wet Roads & Mountain Slopes',
+      'Panoramic Skyroof with Dual 10.25-inch Digital Cockpit',
+      'Custom Sony 12-Speaker 3D Immersive Audio System',
+      'Plush Leatherette Captain Recliners with Lumbar Support',
+      'ADAS Level-2 Safety Package for Highway & Ghat Safety'
+    ],
+    suitability: 'The ultimate modern 7-seater performance SUV for premium families desiring speed, unmatched safety, and supreme comfort in the hills.',
+    idealRoutes: 'Chandigarh Airport to Manali, Dharamshala, Spiti, Leh Highway',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-9',
+    name: 'Tata Safari Dark Edition (7-Seater)',
+    vehicleType: 'Premium 7-Seater Luxury SUV',
+    tag: 'Land Rover Derived D8 Mountain Platform',
+    seatingCapacity: '6 Passengers + 1 Chauffeur',
+    luggageCapacity: '4 Large Bags + Top Carrier',
+    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80',
+    features: [
+      'OMEGARC Architecture Derived from Land Rover D8 Platform',
+      'Ventilated 1st & 2nd Row Captain Seats with Winged Headrests',
+      'Terrain Response Modes (Normal, Rough, Wet)',
+      'JBL 9-Speaker Audio with Subwoofer & Dual AC Controls',
+      'Electronic Parking Brake & Hill Descent Control'
+    ],
+    suitability: 'Unrivaled road presence, heavy-duty suspension, and luxury lounge seating for executive mountain tours across Himachal & Ladakh.',
+    idealRoutes: 'Delhi / Chandigarh to Shimla, Manali, Atal Tunnel, Spiti Valley',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-10',
+    name: 'Tata Harrier Dark Edition (5-Seater)',
+    vehicleType: 'Luxury 5-Seater Mountain SUV',
+    tag: 'Spacious 5-Seater Luxury Cruiser',
+    seatingCapacity: '4 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + 2 Duffel Bags',
+    image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80',
+    features: [
+      'Kryotec 2.0L Turbo Diesel Engine with Massive Low-End Torque',
+      'Panoramic Sunroof & Ambient Cabin Lighting',
+      'Class-Leading 445L Boot Space with Foldable Rear Seats',
+      'Advanced ESP with 14 Safety Functions & Corner Stability',
+      'Soft-Touch Leather Interiors with Wireless Phone Charging'
+    ],
+    suitability: 'Best for travelers who want maximum rear seat legroom, a solid heavy chassis, and exceptional high-speed highway & mountain stability.',
+    idealRoutes: 'Chandigarh to Dharamshala, Dalhousie, Manali, Amritsar',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-11',
+    name: 'Toyota Rumion Smart Hybrid (7-Seater)',
+    vehicleType: 'Family MUV / SUV',
+    tag: 'Reliable & Economical 7-Seater Family Tourer',
+    seatingCapacity: '6 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + Roof Carrier',
+    image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80',
+    features: [
+      'Smart Hybrid Powertrain for Ultra-Quiet & Smooth Drive',
+      'Roof-Mounted Rear AC Vents with 3-Speed Fan Control',
+      'Flexible 60:40 Split 2nd Row & 50:50 Split 3rd Row',
+      'Height-Adjustable Driver Seat & Soft Cushioned Headrests',
+      'All-India Tourist Permit with GPS Tracking'
+    ],
+    suitability: 'Value-for-money family taxi service offering great fuel efficiency, comfortable seating, and smooth rides for Himachal holiday circuits.',
+    idealRoutes: 'Amb Andaura Station to Chintpurni, Jawala Ji, Kangra, Chandigarh, Shimla',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-12',
+    name: 'Maruti Suzuki Grand Vitara AllGrip AWD',
+    vehicleType: 'AWD Mountain 5-Seater SUV',
+    tag: 'AllGrip 4x4 Snow & Hill Specialist',
+    seatingCapacity: '4 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + 2 Backpacks',
+    image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80',
+    features: [
+      'Suzuki AllGrip Select 4WD System (Auto, Sport, Snow, Lock)',
+      'Panoramic Sunroof & 360-Degree View HD Camera',
+      '210mm High Ground Clearance for Tough Himalayan Bends',
+      'Ventilated Front Seats & Wireless Apple CarPlay / Android Auto',
+      'Mountain-Certified Chauffeur with 10+ Years Hill Experience'
+    ],
+    suitability: 'The top AWD choice for small groups heading to snow points in Manali, Rohtang, Sissu, and rainy mountain terrains.',
+    idealRoutes: 'Manali, Solang Valley, Atal Tunnel, Sissu, Jalori Pass, Shimla',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-13',
+    name: 'Mahindra Bolero Neo Plus (9-Seater Cab)',
+    vehicleType: '9-Seater Rugged Mountain Cab',
+    tag: 'Extra-Long Wheelbase 9-Seater Mountain Cab',
+    seatingCapacity: '9 Passengers + 1 Chauffeur',
+    luggageCapacity: '6 Large Bags + Heavy Roof Carrier',
+    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80',
+    features: [
+      'High-Torque 2.2L mHawk Diesel Engine with Micro-Hybrid Tech',
+      'Multi-Terrain Technology (MTT) for Tough Village & Hill Roads',
+      'Spacious 2+3+4 Seating Layout with Dedicated Footsteps',
+      'Reinforced Roof Carrier with Heavy-Duty Tarpaulin Protection',
+      'Chilling Front & Rear AC with Heavy Heater Core'
+    ],
+    suitability: 'High-capacity workhorse designed for large pilgrimage groups, family temple yatras, and budget-friendly mountain group travel.',
+    idealRoutes: 'Amb Andaura Station, Chintpurni, Jawala Ji, Chamunda, Baglamukhi, Naina Devi',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-14',
     name: 'Toyota Fortuner 4x4 Sigma-4',
     vehicleType: 'Luxury 4WD Mountain SUV',
     tag: 'Spiti Valley & VIP Escort Ready',
@@ -163,7 +303,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-8',
+    _id: 'veh-15',
     name: 'Maruti Suzuki Ertiga Smart Hybrid',
     vehicleType: 'Family MUV / SUV',
     tag: 'Budget-Friendly Family 6-Seater',
@@ -183,7 +323,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-9',
+    _id: 'veh-16',
     name: 'Kia Carens Luxury Plus',
     vehicleType: 'Premium 6-Seater MUV',
     tag: 'Modern High-Tech Family Tourer',
@@ -203,7 +343,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-10',
+    _id: 'veh-17',
     name: 'Maruti Suzuki Dzire (AC Sedan Taxi)',
     vehicleType: 'Executive Sedan Taxi',
     tag: 'Best for Couples & Small Families',
@@ -223,7 +363,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-11',
+    _id: 'veh-18',
     name: 'Toyota Etios Platinum (Large Boot Taxi)',
     vehicleType: 'Executive Sedan Taxi',
     tag: 'Extra Legroom & Huge Boot (595L)',
@@ -243,7 +383,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-12',
+    _id: 'veh-19',
     name: 'Honda City V-Tec Executive Sedan',
     vehicleType: 'Premium Sedan Taxi',
     tag: 'Executive Class & Ultra Smooth Ride',
@@ -263,13 +403,13 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-13',
+    _id: 'veh-20',
     name: 'Luxury Force Tempo Traveller (12-Seater Maharaja)',
     vehicleType: 'Luxury 12-Seater Maharaja',
     tag: '1x1 Maharaja Pushback Seats',
     seatingCapacity: '12 Passengers + 1 Chauffeur',
     luggageCapacity: '12+ Large Suitcases (Dedicated Rear Boot)',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Force_Traveller_Luxury.jpg',
+    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80',
     features: [
       'Exclusive 1x1 Maharaja Wide Pushback Recliners',
       'Powerful Central High-Cooling AC & Heating Blowers',
@@ -283,13 +423,13 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-14',
+    _id: 'veh-21',
     name: 'Force Tempo Traveller (17-Seater Deluxe Yatra Coach)',
     vehicleType: 'Deluxe 17-Seater Traveller',
     tag: 'Most Popular for Joint Families & Pilgrimage Groups',
     seatingCapacity: '17 Passengers + 1 Chauffeur',
     luggageCapacity: '16+ Bags (Dedicated Rear Boot & Top Carrier)',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Force_Traveller%2C_Leh-Manali_Highway.jpg',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
     features: [
       '2x1 Deluxe Reclining High-Back Seats with Armrests',
       'Central Chilling AC with Individual Air Vents',
@@ -303,7 +443,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-15',
+    _id: 'veh-22',
     name: 'Force Tempo Traveller (26-Seater Tourist Coach)',
     vehicleType: '26-Seater Tourist Coach / Mini Bus',
     tag: 'Large Group & Wedding Specialist',
@@ -323,13 +463,13 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-16',
+    _id: 'veh-23',
     name: 'Force Urbania VIP Lounge (10 / 14-Seater)',
     vehicleType: 'Executive VIP Luxury Van',
     tag: 'Aircraft-Style Ultra Luxury Lounge',
     seatingCapacity: '10 to 14 Passengers + 1 Chauffeur',
     luggageCapacity: '14 Large Suitcases',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80',
     features: [
       'Mercedes-Derived Monocoque High-Roof Aerodynamic Body',
       'Ultra-Quiet Cabin with Ambient Aircraft Lighting',
@@ -352,7 +492,7 @@ export const INITIAL_DESTINATIONS = [
     location: 'Una District (Near Amb Andaura)',
     shortDescription: 'One of the most sacred 51 Shaktipeeths (Maa Chhinnamastika), accessible in 25 mins from Amb Andaura Station.',
     description: 'Mata Chintpurni Temple is the holy abode of Maa Chhinnamastika Devi where devotees pray for the fulfillment of all wishes. Situated on the Solasinghi hill range just 25 km from Amb Andaura Railway Station, our headquarters provides 24/7 direct cab transfers for pilgrims arriving via Vande Bharat Express.',
-    thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Chintpurni.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80',
     duration: '1 - 2 Days',
     bestTimeToVisit: 'Throughout the year (Navratri Festivals & Sunday Melas)',
     highlights: ['Main Sanctum Darshan of Maa Chhinnamastika', 'Ancient Holy Banyan Tree (Kalgidhar)', 'Prasad & Souvenir Market', 'Garbha Griha Evening Aarti', 'Direct 25-Min Cab Pickup from Amb Andaura Station'],
@@ -367,7 +507,7 @@ export const INITIAL_DESTINATIONS = [
     location: 'Kangra District',
     shortDescription: 'Sacred Shaktipeeth renowned for the nine eternal natural blue flames burning without any fuel.',
     description: 'Jwalamukhi Temple is dedicated to the Goddess of Light and Divine Flames. Legend says Sati’s holy tongue fell here. Nine eternal flames representing different forms of Goddess Durga burn continuously in a natural rock cave, revered by millions of pilgrims annually.',
-    thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/8/80/Jawala_Ji_Temple.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=80',
     duration: '1 - 2 Days',
     bestTimeToVisit: 'Throughout the year (Chaitra & Ashwin Navratris)',
     highlights: ['9 Divine Eternal Natural Flames Darshan', 'Gorakh Dibbi Miraculous Boiling Water Pond', 'Golden Canopy Donated by Emperor Akbar', 'Sej Bhavan & Aarti Hall', 'Shri Raghunath Ji Temple'],
@@ -382,7 +522,7 @@ export const INITIAL_DESTINATIONS = [
     location: 'Kangra Valley',
     shortDescription: 'Fierce Goddess shrine on the banks of Baner River overlooking the majestic snow-clad Dhauladhar peaks.',
     description: 'Chamunda Nandikeshwar Dham is dedicated to the fierce aspect of Goddess Durga who vanquished demons Chanda and Munda. Located near Dharamshala along the roaring river Baner, it combines immense spiritual solace with the grandeur of Kangra Fort and Bajreshwari Devi Temple.',
-    thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Shri_Chamunda_Devi_Mandir.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
     duration: '2 - 3 Days',
     bestTimeToVisit: 'September to June',
     highlights: ['Maa Chamunda Sanctum Sanctorum Darshan', 'Nandikeshwar Shiva Lingam Cave', 'Historic Kangra Fort (One of India’s Oldest)', 'Mata Bajreshwari Kangra Temple', 'Baner River Banks Ghats'],
@@ -397,7 +537,7 @@ export const INITIAL_DESTINATIONS = [
     location: 'Kangra Valley',
     shortDescription: 'Miraculous Pitambara Shatru-Vinashini Peeth and the ancient 1204 AD Vaidyanath Jyotirlinga Temple.',
     description: 'Mata Baglamukhi Temple (Bankhandi) is worshipped for victory, justice, and protection from all obstacles. Coupled with the 800-year-old Nagara stone masterpiece Baijnath Temple where Ravana worshipped Lord Shiva, this circuit is a sacred Himalayan pilgrimage.',
-    thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/BaijNath.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
     duration: '1 - 2 Days',
     bestTimeToVisit: 'Throughout the year (Mahashivratri & Navratri)',
     highlights: ['Mata Baglamukhi Havan & Pujan Peeth', '1204 AD Ancient Baijnath Stone Architecture', 'Natural Mineral Spring Waters of Vaidyanath', 'Tea Gardens of Palampur Enroute', 'Neugal Khad Canyon Views'],
@@ -427,7 +567,7 @@ export const INITIAL_DESTINATIONS = [
     location: 'Parvati Valley (Kullu)',
     shortDescription: 'Sacred Sikh & Hindu pilgrimage site famed for natural boiling therapeutic sulphur hot water springs.',
     description: 'Located by the roaring river Parvati in Kullu, Manikaran Sahib is sacred to both Sikhs (visited by Guru Nanak Dev Ji) and Hindus (Lord Shiva and Goddess Parvati). The miraculous hot springs cook langar food naturally and cure ailments.',
-    thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Gurudwara_Manikaran_Sahib.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1200&q=80',
     duration: '2 - 3 Days',
     bestTimeToVisit: 'March to November',
     highlights: ['Gurudwara Shri Manikaran Sahib Langar & Snan', 'Lord Shiva & Ramchandra Ancient Temples', 'Healing Natural Sulphur Hot Springs Baths', 'Scenic Parvati River Valley Drive', 'Kasol & Tosh Village Base'],
@@ -442,7 +582,7 @@ export const INITIAL_DESTINATIONS = [
     location: 'Rupnagar & Bilaspur',
     shortDescription: 'Birthplace of the Khalsa (Takht Sri Damdama / Kesgarh) and sacred hilltop Naina Devi Temple.',
     description: 'Anandpur Sahib, the City of Bliss, is where Guru Gobind Singh Ji created the Khalsa Panth in 1699. Directly across the Shivalik ridges lies the revered hilltop shrine of Maa Naina Devi overlooking Gobind Sagar Lake, connected by ropeway.',
-    thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Takht_Sri_Keshgarh_Sahib%2C_Anandpur_Sahib.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1565019004944-9f798835848c?auto=format&fit=crop&w=1200&q=80',
     duration: '1 - 2 Days',
     bestTimeToVisit: 'Throughout the year (Hola Mohalla in March & Navratri)',
     highlights: ['Takht Sri Kesgarh Sahib Darshan & Historic Weapons', 'Virasat-e-Khalsa World Heritage Museum', 'Mata Naina Devi Temple & Ropeway Ride', 'Gobind Sagar Lake & Bhakra Dam Views', 'Langar & Spiritual Tranquility'],
@@ -472,7 +612,7 @@ export const INITIAL_DESTINATIONS = [
     location: 'Kullu District',
     shortDescription: '1553 AD Hadimba Devi Temple, Vashisht Hot Springs, Atal Tunnel, and Solang snow slopes.',
     description: 'Set along the Beas River, Manali combines sacred history (1553 AD wooden pagoda Hadimba Temple, Sage Manu Temple) with world-class mountain adventure at Solang Valley, Rohtang Pass, and the engineering marvel Atal Tunnel.',
-    thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Hadimba_Temple.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80',
     duration: '4 - 6 Days',
     bestTimeToVisit: 'Throughout the year (Snow: Dec-Feb, Greenery: Mar-Jun)',
     highlights: ['1553 AD Hadimba Devi Temple in Cedar Woods', 'Vashisht Rishi Ancient Temple & Hot Sulphur Springs', 'Solang Valley Ropeway & Snow Sports', 'Atal Tunnel (9.02 km) & Sissu Waterfall', 'Old Manali Manu Maharishi Temple'],
