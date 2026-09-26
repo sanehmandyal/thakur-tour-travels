@@ -8,12 +8,16 @@ export const VEHICLE_IMAGES = {
   hycross: '/images/cars/hycross.jpg',
   ertiga: '/images/cars/ertiga.jpg',
   scorpio: '/images/cars/scorpio.jpg',
-  thar: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80',
-  cruiser: '/images/cars/scorpio.jpg',
+  thar: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Mahindra_Thar_SUV_in_%22Red_Rage%22_color_at_Ashiana_Brahmanda%2C_East_Singbhum_India_%28Ank_Kumar%2C_Infosys_limited%29_03.jpg',
+  cruiser: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Mahindra_Bolero_GLX_Front.JPG',
+  trax: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Mahindra_Bolero_Camper_double-cab_truck_in_Pakxe_Laos.jpg',
   fortuner: '/images/cars/fortuner.jpg',
   carens: '/images/cars/carens.jpg',
-  tempo: '/images/cars/tempo_traveller.jpg',
-  urbania: '/images/cars/tempo_traveller.jpg',
+  tempo12: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Force_Traveller_Luxury.jpg',
+  tempo17: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Force_Traveller%2C_Leh-Manali_Highway.jpg',
+  tempo26: '/images/cars/tempo_traveller.jpg',
+  tempo: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Force_Traveller_Luxury.jpg',
+  urbania: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
   sedan: '/images/cars/dzire.jpg',
   defaultCar: '/images/cars/innova_crysta.jpg'
 };
@@ -45,10 +49,14 @@ export function getVehicleImage(vehicle) {
     return vehicle.image;
   }
   const name = String(vehicle?.name || vehicle?.vehicleType || '').toLowerCase();
-  if (name.includes('thar')) return VEHICLE_IMAGES.thar;
-  if (name.includes('cruiser') || name.includes('camper') || name.includes('bolero')) return VEHICLE_IMAGES.cruiser;
+  if (name.includes('urbania') || name.includes('vip van')) return VEHICLE_IMAGES.urbania;
+  if (name.includes('12') && (name.includes('tempo') || name.includes('traveller') || name.includes('maharaja'))) return VEHICLE_IMAGES.tempo12;
+  if (name.includes('17') && (name.includes('tempo') || name.includes('traveller') || name.includes('yatra'))) return VEHICLE_IMAGES.tempo17;
+  if (name.includes('26') && (name.includes('tempo') || name.includes('traveller') || name.includes('coach'))) return VEHICLE_IMAGES.tempo26;
   if (name.includes('tempo') || name.includes('traveller')) return VEHICLE_IMAGES.tempo;
-  if (name.includes('urbania') || name.includes('van')) return VEHICLE_IMAGES.urbania;
+  if (name.includes('thar')) return VEHICLE_IMAGES.thar;
+  if (name.includes('toofan') || name.includes('trax')) return VEHICLE_IMAGES.trax;
+  if (name.includes('cruiser') || name.includes('camper') || name.includes('bolero')) return VEHICLE_IMAGES.cruiser;
   if (name.includes('hycross')) return VEHICLE_IMAGES.hycross;
   if (name.includes('innova') || name.includes('crysta')) return VEHICLE_IMAGES.innova;
   if (name.includes('dzire') || name.includes('swift')) return VEHICLE_IMAGES.dzire;

@@ -69,7 +69,7 @@ export const INITIAL_VEHICLES = [
     tag: 'Spiti, Rohtang Snow & Off-Road Icon',
     seatingCapacity: '4 Passengers (Including Driver)',
     luggageCapacity: '2 Duffel Bags + Rear Storage',
-    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Mahindra_Thar_SUV_in_%22Red_Rage%22_color_at_Ashiana_Brahmanda%2C_East_Singbhum_India_%28Ank_Kumar%2C_Infosys_limited%29_03.jpg',
     features: [
       'Authentic 4x4 Low-Ratio Gearbox & Mechanical Locking Differential',
       'High Ground Clearance (226mm) & All-Terrain Snow Tires',
@@ -109,7 +109,7 @@ export const INITIAL_VEHICLES = [
     tag: 'High-Traction 9-Seater Himalayan Workhorse',
     seatingCapacity: '9 Passengers + 1 Chauffeur',
     luggageCapacity: '6 Large Bags + Heavy Roof Carrier',
-    image: '/images/cars/scorpio.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Mahindra_Bolero_GLX_Front.JPG',
     features: [
       'Metal Solid Bumper & Reinforced Mountain Leaf Springs',
       'High Ground Clearance (180mm) for Harsh Hill Roads',
@@ -124,6 +124,26 @@ export const INITIAL_VEHICLES = [
   },
   {
     _id: 'veh-6',
+    name: 'Force Trax Cruiser / Toofan (13-Seater Hill MUV)',
+    vehicleType: 'Rugged 13-Seater Hill Cruiser',
+    tag: 'Heavy-Duty Mountain People Mover',
+    seatingCapacity: '12 to 13 Passengers + 1 Chauffeur',
+    luggageCapacity: '8+ Bags + Heavy-Duty Top Carrier',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/29/Mahindra_Bolero_Camper_double-cab_truck_in_Pakxe_Laos.jpg',
+    features: [
+      'Reinforced High-Torque Mercedes-Derived Engine',
+      'High Ground Clearance for Rugged Mountain Terrains',
+      'Triple-Row Spacious High-Back Seating with Grab Handles',
+      'Reinforced Roof Luggage Rack for Group Baggage',
+      'Experienced Senior Hill-Route Specialist Driver'
+    ],
+    suitability: 'The workhorse choice for large pilgrimage jathas, rural temple circuits, local functions, and heavy luggage hill transfers.',
+    idealRoutes: 'Chintpurni, Jawala Ji, Chamunda, Baglamukhi, Baba Balak Nath, Anandpur Sahib',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-7',
     name: 'Toyota Fortuner 4x4 Sigma-4',
     vehicleType: 'Luxury 4WD Mountain SUV',
     tag: 'Spiti Valley & VIP Escort Ready',
@@ -143,7 +163,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-7',
+    _id: 'veh-8',
     name: 'Maruti Suzuki Ertiga Smart Hybrid',
     vehicleType: 'Family MUV / SUV',
     tag: 'Budget-Friendly Family 6-Seater',
@@ -163,7 +183,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-8',
+    _id: 'veh-9',
     name: 'Kia Carens Luxury Plus',
     vehicleType: 'Premium 6-Seater MUV',
     tag: 'Modern High-Tech Family Tourer',
@@ -183,7 +203,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-9',
+    _id: 'veh-10',
     name: 'Maruti Suzuki Dzire (AC Sedan Taxi)',
     vehicleType: 'Executive Sedan Taxi',
     tag: 'Best for Couples & Small Families',
@@ -203,7 +223,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-10',
+    _id: 'veh-11',
     name: 'Toyota Etios Platinum (Large Boot Taxi)',
     vehicleType: 'Executive Sedan Taxi',
     tag: 'Extra Legroom & Huge Boot (595L)',
@@ -223,13 +243,33 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-11',
+    _id: 'veh-12',
+    name: 'Honda City V-Tec Executive Sedan',
+    vehicleType: 'Premium Sedan Taxi',
+    tag: 'Executive Class & Ultra Smooth Ride',
+    seatingCapacity: '4 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + 2 Handbags',
+    image: '/images/cars/honda_city.jpg',
+    features: [
+      'Plush Soft Leather Seating & Rear Sunshade',
+      '506-Litre Deep Boot Capacity for Luggage',
+      'Cruise Control & High-Efficiency Silent Powertrain',
+      'Dual Air Conditioners with Rear AC Vents',
+      'Experienced Polite Uniformed Chauffeur'
+    ],
+    suitability: 'First choice for business executives, delegates, honeymoon couples, and premium intercity highway travel.',
+    idealRoutes: 'Chandigarh Airport to Shimla, Dharamshala, Amritsar, Delhi NCR',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-13',
     name: 'Luxury Force Tempo Traveller (12-Seater Maharaja)',
     vehicleType: 'Luxury 12-Seater Maharaja',
     tag: '1x1 Maharaja Pushback Seats',
     seatingCapacity: '12 Passengers + 1 Chauffeur',
     luggageCapacity: '12+ Large Suitcases (Dedicated Rear Boot)',
-    image: '/images/cars/tempo_traveller.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Force_Traveller_Luxury.jpg',
     features: [
       'Exclusive 1x1 Maharaja Wide Pushback Recliners',
       'Powerful Central High-Cooling AC & Heating Blowers',
@@ -243,13 +283,13 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-12',
+    _id: 'veh-14',
     name: 'Force Tempo Traveller (17-Seater Deluxe Yatra Coach)',
     vehicleType: 'Deluxe 17-Seater Traveller',
     tag: 'Most Popular for Joint Families & Pilgrimage Groups',
     seatingCapacity: '17 Passengers + 1 Chauffeur',
     luggageCapacity: '16+ Bags (Dedicated Rear Boot & Top Carrier)',
-    image: '/images/cars/tempo_traveller.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/6/61/Force_Traveller%2C_Leh-Manali_Highway.jpg',
     features: [
       '2x1 Deluxe Reclining High-Back Seats with Armrests',
       'Central Chilling AC with Individual Air Vents',
@@ -263,7 +303,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-13',
+    _id: 'veh-15',
     name: 'Force Tempo Traveller (26-Seater Tourist Coach)',
     vehicleType: '26-Seater Tourist Coach / Mini Bus',
     tag: 'Large Group & Wedding Specialist',
@@ -283,13 +323,13 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-14',
+    _id: 'veh-16',
     name: 'Force Urbania VIP Lounge (10 / 14-Seater)',
     vehicleType: 'Executive VIP Luxury Van',
     tag: 'Aircraft-Style Ultra Luxury Lounge',
     seatingCapacity: '10 to 14 Passengers + 1 Chauffeur',
     luggageCapacity: '14 Large Suitcases',
-    image: '/images/cars/tempo_traveller.jpg',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
     features: [
       'Mercedes-Derived Monocoque High-Roof Aerodynamic Body',
       'Ultra-Quiet Cabin with Ambient Aircraft Lighting',
