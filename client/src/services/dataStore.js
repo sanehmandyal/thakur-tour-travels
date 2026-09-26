@@ -7,7 +7,7 @@ import {
   DEFAULT_SETTINGS
 } from './mockData';
 
-const STORE_VERSION = 'v2026_himachal_authentic_v7';
+const STORE_VERSION = 'v2026_actual_local_assets_v8';
 
 const STORE_DEFAULTS = {
   vehicles: INITIAL_VEHICLES,
