@@ -19,14 +19,14 @@ export const VEHICLE_IMAGES = {
 };
 
 export const DESTINATION_IMAGES = {
-  chintpurni: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80',
-  jawalaji: 'https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=80',
-  chamunda: 'https://images.unsplash.com/photo-1621847468516-1ed5d0df56fe?auto=format&fit=crop&w=1200&q=80',
-  baglamukhi: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
-  manikaran: 'https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?auto=format&fit=crop&w=1200&q=80',
-  anandpur: 'https://images.unsplash.com/photo-1565019004944-9f798835848c?auto=format&fit=crop&w=1200&q=80',
+  chintpurni: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Chintpurni.jpg',
+  jawalaji: 'https://upload.wikimedia.org/wikipedia/commons/8/80/Jawala_Ji_Temple.jpg',
+  chamunda: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Shri_Chamunda_Devi_Mandir.jpg',
+  baglamukhi: 'https://upload.wikimedia.org/wikipedia/commons/3/3a/BaijNath.jpg',
+  manikaran: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Gurudwara_Manikaran_Sahib.jpg',
+  anandpur: 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Takht_Sri_Keshgarh_Sahib%2C_Anandpur_Sahib.jpg',
   amritsar: 'https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&w=1200&q=80',
-  manali: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80',
+  manali: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Hadimba_Temple.jpg',
   shimla: 'https://images.unsplash.com/photo-1597074866923-dc0589150358?auto=format&fit=crop&w=1200&q=80',
   dharamshala: 'https://images.unsplash.com/photo-1571536802807-30451e3955d8?auto=format&fit=crop&w=1200&q=80',
   dalhousie: 'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=1200&q=80',
@@ -37,7 +37,7 @@ export const DESTINATION_IMAGES = {
   birbilling: 'https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=1200&q=80',
   ladakh: 'https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=1200&q=80',
   chandigarh: 'https://images.unsplash.com/photo-1582650625119-3a31f8418b7d?auto=format&fit=crop&w=1200&q=80',
-  defaultDest: 'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1200&q=80'
+  defaultDest: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Chintpurni.jpg'
 };
 
 export function getVehicleImage(vehicle) {
