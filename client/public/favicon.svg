@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#0B2545" />
+      <stop offset="60%" stopColor="#123B68" />
+      <stop offset="100%" stopColor="#06162A" />
+    </linearGradient>
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FEF08A" />
+      <stop offset="50%" stopColor="#F59E0B" />
+      <stop offset="100%" stopColor="#D97706" />
+    </linearGradient>
+    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FDE047" />
+      <stop offset="100%" stopColor="#EA580C" />
+    </linearGradient>
+    <path id="topText" d="M 18, 70 A 52, 52 0 1, 1 122, 70" fill="none" />
+  </defs>
+
+  <circle cx="70" cy="70" r="66" fill="url(#shieldGrad)" stroke="url(#goldRing)" strokeWidth="4" />
+  <text font-size="9" font-weight="900" fill="url(#goldRing)" letter-spacing="2">
+    <textPath href="#topText" startOffset="50%" text-anchor="middle">
+      ★ THAKUR TOUR &amp; TRAVELS ★
+    </textPath>
+  </text>
+  <circle cx="70" cy="76" r="42" fill="#071930" stroke="url(#goldRing)" strokeWidth="2" />
+  <circle cx="70" cy="62" r="22" fill="url(#sunGrad)" />
+  <polygon points="26,104 54,54 82,104" fill="#0284C7" />
+  <polygon points="54,54 46,68 52,64 54,71 58,65 64,69" fill="#FFFFFF" />
+  <polygon points="58,104 88,48 116,104" fill="#0369A1" />
+  <polygon points="88,48 80,62 86,58 88,65 93,59 98,63" fill="#FFFFFF" />
+  <polygon points="34,112 70,38 106,112" fill="#0B2545" />
+  <polygon points="70,38 58,62 66,57 70,66 76,57 84,63" fill="#FFFFFF" />
+  <path d="M70 68 Q 74 84, 56 114 L 84 114 Q 78 88, 71 68 Z" fill="#F59E0B" />
+</svg>
