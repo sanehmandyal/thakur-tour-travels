@@ -24,26 +24,186 @@ export const DEFAULT_SETTINGS = {
 export const INITIAL_VEHICLES = [
   {
     _id: 'veh-1',
-    name: 'Toyota Innova Crysta 2.4 ZX',
-    vehicleType: 'Innova Crysta Luxury SUV / MPV',
-    tag: '👑 #1 Gold Standard for Himachal Hills',
-    seatingCapacity: '6 to 7 Passengers + 1 Chauffeur',
-    luggageCapacity: '4 Large Strolleys + Dedicated Roof Carrier',
-    image: '/images/cars/innova_crysta.jpg',
+    name: 'Force Trax Cruiser / Toofan (9-13 Seater Hill 4x4)',
+    vehicleType: 'Rugged 9 to 13 Seater Hill Cruiser',
+    tag: '🏔️ #1 Mountain Cruiser for Himachal Hills & Large Groups',
+    seatingCapacity: '9 to 13 Passengers + 1 Chauffeur',
+    luggageCapacity: '8+ Large Bags + Heavy-Duty Top Roof Carrier',
+    image: '/images/cars/cruiser.jpg',
     features: [
-      'Individual Reclining Pilot Captain Seats with Armrests',
-      'Triple-Zone Independent AC & Mountain Heating Vents',
-      'Superior Independent Mountain Suspension (Zero Motion Sickness)',
-      'Heavy-Duty Rainproof Roof Luggage Carrier',
-      '12V & USB Fast Charging at Every Row'
+      'High Ground Clearance (210mm) & Mercedes-Derived High-Torque Engine',
+      'Heavy-Duty Mountain Suspension with High Traction for Steep Gradients',
+      'Triple-Row Spacious High-Back Seating with Grab Handles',
+      'Reinforced Waterproof Top Luggage Rack for Heavy Yatra Bags',
+      'Local Senior Himachali Mountain Specialist Driver'
     ],
-    suitability: 'The undisputed king of hill travel in India. Supreme comfort on mountain hairpin bends for families, seniors, and long circuits.',
-    idealRoutes: 'Chandigarh / Delhi / Amb Andaura to Manali, Shimla, Dharamshala, Spiti Valley',
+    suitability: 'The undisputed #1 mountain workhorse for Himachal group tours, temple yatras, steep village roads, Kinnaur, and high mountain passes.',
+    idealRoutes: 'Amb Andaura Station, Chintpurni, Jawala Ji, Chamunda, Baglamukhi, Spiti Valley, Kinnaur, Kullu-Manali',
     isAvailable: true,
     isActive: true
   },
   {
     _id: 'veh-2',
+    name: 'Force Tempo Traveller (12-Seater Maharaja Recliner)',
+    vehicleType: 'Luxury 12-Seater Maharaja Van',
+    tag: '👑 #1 Tourist Group Choice with 1x1 Maharaja Pushback Seats',
+    seatingCapacity: '12 Passengers + 1 Chauffeur',
+    luggageCapacity: '12+ Large Suitcases (Dedicated Boot & Roof Carrier)',
+    image: '/images/cars/tempo_traveller.jpg',
+    features: [
+      'Exclusive 1x1 Maharaja Wide Pushback Recliner Seats',
+      'Powerful Dual Air Conditioners & Mountain Cabin Heater',
+      'LED TV Screen, Mic Setup & Surround Music System',
+      'Individual Reading Lights & USB Mobile Fast Charging at Every Seat',
+      'Experienced Senior Mountain Tour Driver'
+    ],
+    suitability: 'The premier choice for joint family holidays, group vacations, corporate offsites, and religious yatras across Himachal & North India.',
+    idealRoutes: 'Complete Himachal 6-Day Tour, Shimla-Manali, Dharamshala, Dalhousie, Amritsar Golden Temple',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-3',
+    name: 'Toyota Innova Crysta 2.4 ZX (6-7 Seater)',
+    vehicleType: 'Innova Crysta Luxury SUV / MPV',
+    tag: '👑 Gold Standard Hill King for Family Comfort',
+    seatingCapacity: '6 to 7 Passengers + 1 Chauffeur',
+    luggageCapacity: '4 Large Strolleys + Dedicated Roof Carrier',
+    image: '/images/cars/innova_crysta.jpg',
+    features: [
+      'Individual Reclining Pilot Captain Seats with Center Armrests',
+      'Triple-Zone Independent AC & Mountain Heating Vents',
+      'Superior Independent Mountain Suspension (Zero Motion Sickness)',
+      'Heavy-Duty Rainproof Roof Luggage Carrier',
+      '12V & USB Fast Charging at Every Row'
+    ],
+    suitability: 'Supreme comfort on mountain hairpin bends for families, honeymooners, seniors, and long multi-day holiday circuits.',
+    idealRoutes: 'Chandigarh / Delhi / Amb Andaura to Manali, Shimla, Dharamshala, Spiti Valley',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-4',
+    name: 'Maruti Suzuki Swift (Mountain Hatchback Taxi)',
+    vehicleType: 'Budget Mountain Hatchback Taxi',
+    tag: '⚡ Agile & Economical Hill Taxi for Quick Mountain Trips',
+    seatingCapacity: '4 Passengers (Including Chauffeur)',
+    luggageCapacity: '2 Strolleys + 2 Handbags',
+    image: '/images/cars/swift.jpg',
+    features: [
+      'Chilling AC & High-Power Mountain Cabin Heater',
+      'Compact Dimensions for Effortless Mountain Hairpin Curve Overtakes',
+      'Clean Sanitized Cabin with Fabric Seats & Bluetooth Audio',
+      'High Mileage & Most Budget-Friendly Taxi Option',
+      'Mountain-Certified Polite Local Driver'
+    ],
+    suitability: 'Quick, highly budget-friendly taxi for solo travelers, couples, station pickups, and local Himachal sightseeing.',
+    idealRoutes: 'Amb Andaura Station, Una, Chintpurni, Jawala Ji, Kangra, Kalka, Chandigarh transfers',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-5',
+    name: 'Maruti Suzuki Dzire (AC Sedan Taxi)',
+    vehicleType: 'Executive Sedan Taxi',
+    tag: '⭐ Best Budget Sedan for Couples & Small Families',
+    seatingCapacity: '4 Passengers + 1 Chauffeur',
+    luggageCapacity: '2 Large Suitcases + 2 Handbags',
+    image: '/images/cars/dzire.jpg',
+    features: [
+      'Chilling AC & High-Power Mountain Heater',
+      'Plush Sanitized Cabin & Premium Fabric Upholstery',
+      'Bluetooth Music System with USB Fast Charging',
+      '378L Large Trunk Boot Space for Family Luggage',
+      'Mountain-Certified Polite Chauffeur'
+    ],
+    suitability: 'Smooth, highly economical, and comfortable highway & hill drive for couples, honeymooners, and families of up to 4.',
+    idealRoutes: 'Amb Andaura Station, Chandigarh to Shimla, Manali, Kalka transfers, Temple Darshan Circuits',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-6',
+    name: 'Maruti Suzuki Ertiga Smart Hybrid (6-Seater)',
+    vehicleType: 'Family 6-Seater MUV / Taxi',
+    tag: 'Budget-Friendly Family 6-Seater',
+    seatingCapacity: '5 to 6 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + Heavy Roof Carrier',
+    image: '/images/cars/ertiga.jpg',
+    features: [
+      'Dual Air Conditioners with 2nd Row Blower Controls',
+      'Flexible 3-Row Foldable High-Comfort Seating',
+      'High Mileage & Low Carbon Footprint Hybrid Powertrain',
+      'Clean Sanitized Cabin with Mobile Fast Chargers',
+      'Real-Time GPS Tracking for Family Safety'
+    ],
+    suitability: 'Smart, cost-effective 6-seater vehicle providing great comfort for family holidays to Shimla, Manali, and Dharamshala.',
+    idealRoutes: 'Chandigarh to Shimla, Manali, Amritsar, Kalka, Amb Andaura Station',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-7',
+    name: 'Mahindra Scorpio-N 4XPLOR (4x4 7-Seater)',
+    vehicleType: 'Mountain Adventure 4WD SUV',
+    tag: 'Rugged 4x4 Off-Road & Snow Ready SUV',
+    seatingCapacity: '6 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + Roof Carrier',
+    image: '/images/cars/scorpio.jpg',
+    features: [
+      'Intelligent 4XPLOR Terrain Modes (Snow, Mud, Rocks, Sand)',
+      'High Ground Clearance (187mm) & Muscular High-Seating Stance',
+      'High Seating Position with Panoramic Valley Views',
+      'Dual-Zone Climate Control & Heavy Heater Core',
+      'High-Altitude Certified Spiti Tour Chauffeur'
+    ],
+    suitability: 'Built for thrilling road trips through rough mountain trails, Atal Tunnel winter snow, Spiti Valley, and high mountain passes.',
+    idealRoutes: 'Spiti Valley Loop, Rohtang Pass, Chandratal Lake, Kinnaur, Manali',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-8',
+    name: 'Mahindra Bolero Camper / Neo Plus (9-Seater)',
+    vehicleType: 'Rugged 9-Seater Mountain Cab',
+    tag: 'High-Traction 9-Seater Himalayan Workhorse',
+    seatingCapacity: '8 to 9 Passengers + 1 Chauffeur',
+    luggageCapacity: '6 Large Bags + Heavy Roof Carrier',
+    image: '/images/cars/bolero.jpg',
+    features: [
+      'High-Torque 2.2L mHawk Diesel Engine with Micro-Hybrid Tech',
+      'Multi-Terrain Technology (MTT) for Tough Village & Hill Roads',
+      'Spacious Seating Layout with Dedicated Heavy Metal Footsteps',
+      'Reinforced Roof Carrier with Heavy-Duty Tarpaulin Protection',
+      'Chilling Front & Rear AC with Heavy Mountain Heater'
+    ],
+    suitability: 'High-capacity workhorse designed for large pilgrimage groups, family temple yatras, and budget-friendly mountain group travel.',
+    idealRoutes: 'Amb Andaura Station, Chintpurni, Jawala Ji, Chamunda, Baglamukhi, Naina Devi',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-9',
+    name: 'Mahindra Thar 4x4 Hardtop Adventure',
+    vehicleType: '4WD Off-Road Adventure SUV',
+    tag: 'Spiti, Rohtang Snow & Adventure Icon',
+    seatingCapacity: '4 Passengers (Including Driver)',
+    luggageCapacity: '2 Duffel Bags + Rear Storage',
+    image: '/images/cars/thar.jpg',
+    features: [
+      'Authentic 4x4 Low-Ratio Gearbox & Mechanical Locking Differential',
+      'High Ground Clearance (226mm) & All-Terrain Snow Tires',
+      'Hardtop Insulation with Powerful Heating & Defogger',
+      'Touchscreen Infotainment with Adventure Gauges',
+      'Seasoned Mountain Off-Road Driving Specialist'
+    ],
+    suitability: 'Perfect for adventure seekers, couples, and photography expeditions conquering Spiti Valley, Rohtang snow, Chandratal, and remote trans-Himalayan passes.',
+    idealRoutes: 'Spiti Valley Circuit, Atal Tunnel to Sissu, Rohtang Snow Point, Chandratal Lake',
+    isAvailable: true,
+    isActive: true
+  },
+  {
+    _id: 'veh-10',
     name: 'Toyota Innova HyCross (Hybrid VIP Lounge)',
     vehicleType: 'Hybrid VIP MPV / SUV',
     tag: 'Ultra-Modern Flagship Hybrid',
@@ -63,227 +223,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-3',
-    name: 'Mahindra Thar 4x4 Hardtop Adventure',
-    vehicleType: '4WD Off-Road Adventure SUV',
-    tag: 'Spiti, Rohtang Snow & Off-Road Icon',
-    seatingCapacity: '4 Passengers (Including Driver)',
-    luggageCapacity: '2 Duffel Bags + Rear Storage',
-    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Authentic 4x4 Low-Ratio Gearbox & Mechanical Locking Differential',
-      'High Ground Clearance (226mm) & All-Terrain Snow Tires',
-      'Hardtop Insulation with Powerful Heating & Defogger',
-      'Touchscreen Infotainment with Adventure Gauges',
-      'Seasoned Mountain Off-Road Driving Specialist'
-    ],
-    suitability: 'Perfect for adventure seekers, couples, and photography expeditions conquering Spiti Valley, Rohtang snow, Chandratal, and remote trans-Himalayan passes.',
-    idealRoutes: 'Spiti Valley Circuit, Atal Tunnel to Sissu, Rohtang Snow Point, Chandratal Lake',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-4',
-    name: 'Mahindra Scorpio-N 4XPLOR (4x4)',
-    vehicleType: 'Mountain Adventure 4WD SUV',
-    tag: 'Rugged Off-Road & Snow Ready',
-    seatingCapacity: '6 Passengers + 1 Chauffeur',
-    luggageCapacity: '3 Large Bags + Carrier',
-    image: '/images/cars/scorpio.jpg',
-    features: [
-      'Intelligent 4XPLOR Terrain Modes (Snow, Sand, Mud, Rocks)',
-      'High Ground Clearance (187mm) & Muscular Stance',
-      'High Seating Position with Panoramic Valley Views',
-      'Dual-Zone Climate Control & Sony 3D Audio',
-      'High-Altitude Certified Spiti Tour Chauffeur'
-    ],
-    suitability: 'Built for thrilling road trips through rough mountain trails, Atal Tunnel winter snow, Spiti Valley, and high mountain passes.',
-    idealRoutes: 'Spiti Valley Loop, Rohtang Pass, Chandratal Lake, Kinnaur',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-5',
-    name: 'Mahindra Bolero Cruiser / Camper (9-Seater)',
-    vehicleType: 'Rugged Mountain Hill Cruiser',
-    tag: 'High-Traction 9-Seater Himalayan Workhorse',
-    seatingCapacity: '9 Passengers + 1 Chauffeur',
-    luggageCapacity: '6 Large Bags + Heavy Roof Carrier',
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Metal Solid Bumper & Reinforced Mountain Leaf Springs',
-      'High Ground Clearance (180mm) for Harsh Hill Roads',
-      'Spacious Long Wheelbase with Forward & Side-Facing Seats',
-      'Heavy-Duty Roof Luggage Carrier for Pilgrimage Baggage',
-      'Local Himachali Mountain Master Driver'
-    ],
-    suitability: 'Unmatched toughness on steep village gradients, temple yatras, group pilgrims, and rural Himachal mountain routes.',
-    idealRoutes: 'Amb Andaura to Mata Chintpurni, Jawala Ji, Kangra Devi, Baijnath & Interior Valleys',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-6',
-    name: 'Force Trax Cruiser / Toofan (13-Seater Hill MUV)',
-    vehicleType: 'Rugged 13-Seater Hill Cruiser',
-    tag: 'Heavy-Duty Mountain People Mover',
-    seatingCapacity: '12 to 13 Passengers + 1 Chauffeur',
-    luggageCapacity: '8+ Bags + Heavy-Duty Top Carrier',
-    image: 'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Reinforced High-Torque Mercedes-Derived Engine',
-      'High Ground Clearance for Rugged Mountain Terrains',
-      'Triple-Row Spacious High-Back Seating with Grab Handles',
-      'Reinforced Roof Luggage Rack for Group Baggage',
-      'Experienced Senior Hill-Route Specialist Driver'
-    ],
-    suitability: 'The workhorse choice for large pilgrimage jathas, rural temple circuits, local functions, and heavy luggage hill transfers.',
-    idealRoutes: 'Chintpurni, Jawala Ji, Chamunda, Baglamukhi, Baba Balak Nath, Anandpur Sahib',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-7',
-    name: 'Hyundai Creta SX (Executive Mountain SUV)',
-    vehicleType: 'Executive 5-Seater SUV',
-    tag: 'Comfortable Hill Cruiser & City Taxi',
-    seatingCapacity: '4 Passengers + 1 Chauffeur',
-    luggageCapacity: '3 Large Bags + 2 Handbags',
-    image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Panoramic Sunroof & Voice-Enabled Climate Control',
-      'Plush Leatherette Upholstery & Bose 8-Speaker Audio',
-      'High Ground Clearance (190mm) with Hill-Start Assist',
-      'Rear AC Vents & Dedicated USB Charging Ports',
-      'Smooth Automatic / Diesel Power for Hill Ascents'
-    ],
-    suitability: 'Ideal for couples, executive business travelers, and small families wanting modern SUV luxury for Shimla, Manali & Dharamshala.',
-    idealRoutes: 'Chandigarh / Delhi to Shimla, Kasauli, Manali, Dalhousie',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-8',
-    name: 'Mahindra XUV700 AX7 Luxury AWD',
-    vehicleType: 'Luxury 7-Seater AWD SUV',
-    tag: 'Flagship All-Wheel Drive Hill Tourer',
-    seatingCapacity: '6 Passengers + 1 Chauffeur',
-    luggageCapacity: '4 Large Bags + Top Carrier',
-    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Intelligent All-Wheel Drive (AWD) for Wet Roads & Mountain Slopes',
-      'Panoramic Skyroof with Dual 10.25-inch Digital Cockpit',
-      'Custom Sony 12-Speaker 3D Immersive Audio System',
-      'Plush Leatherette Captain Recliners with Lumbar Support',
-      'ADAS Level-2 Safety Package for Highway & Ghat Safety'
-    ],
-    suitability: 'The ultimate modern 7-seater performance SUV for premium families desiring speed, unmatched safety, and supreme comfort in the hills.',
-    idealRoutes: 'Chandigarh Airport to Manali, Dharamshala, Spiti, Leh Highway',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-9',
-    name: 'Tata Safari Dark Edition (7-Seater)',
-    vehicleType: 'Premium 7-Seater Luxury SUV',
-    tag: 'Land Rover Derived D8 Mountain Platform',
-    seatingCapacity: '6 Passengers + 1 Chauffeur',
-    luggageCapacity: '4 Large Bags + Top Carrier',
-    image: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'OMEGARC Architecture Derived from Land Rover D8 Platform',
-      'Ventilated 1st & 2nd Row Captain Seats with Winged Headrests',
-      'Terrain Response Modes (Normal, Rough, Wet)',
-      'JBL 9-Speaker Audio with Subwoofer & Dual AC Controls',
-      'Electronic Parking Brake & Hill Descent Control'
-    ],
-    suitability: 'Unrivaled road presence, heavy-duty suspension, and luxury lounge seating for executive mountain tours across Himachal & Ladakh.',
-    idealRoutes: 'Delhi / Chandigarh to Shimla, Manali, Atal Tunnel, Spiti Valley',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-10',
-    name: 'Tata Harrier Dark Edition (5-Seater)',
-    vehicleType: 'Luxury 5-Seater Mountain SUV',
-    tag: 'Spacious 5-Seater Luxury Cruiser',
-    seatingCapacity: '4 Passengers + 1 Chauffeur',
-    luggageCapacity: '3 Large Bags + 2 Duffel Bags',
-    image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Kryotec 2.0L Turbo Diesel Engine with Massive Low-End Torque',
-      'Panoramic Sunroof & Ambient Cabin Lighting',
-      'Class-Leading 445L Boot Space with Foldable Rear Seats',
-      'Advanced ESP with 14 Safety Functions & Corner Stability',
-      'Soft-Touch Leather Interiors with Wireless Phone Charging'
-    ],
-    suitability: 'Best for travelers who want maximum rear seat legroom, a solid heavy chassis, and exceptional high-speed highway & mountain stability.',
-    idealRoutes: 'Chandigarh to Dharamshala, Dalhousie, Manali, Amritsar',
-    isAvailable: true,
-    isActive: true
-  },
-  {
     _id: 'veh-11',
-    name: 'Toyota Rumion Smart Hybrid (7-Seater)',
-    vehicleType: 'Family MUV / SUV',
-    tag: 'Reliable & Economical 7-Seater Family Tourer',
-    seatingCapacity: '6 Passengers + 1 Chauffeur',
-    luggageCapacity: '3 Large Bags + Roof Carrier',
-    image: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Smart Hybrid Powertrain for Ultra-Quiet & Smooth Drive',
-      'Roof-Mounted Rear AC Vents with 3-Speed Fan Control',
-      'Flexible 60:40 Split 2nd Row & 50:50 Split 3rd Row',
-      'Height-Adjustable Driver Seat & Soft Cushioned Headrests',
-      'All-India Tourist Permit with GPS Tracking'
-    ],
-    suitability: 'Value-for-money family taxi service offering great fuel efficiency, comfortable seating, and smooth rides for Himachal holiday circuits.',
-    idealRoutes: 'Amb Andaura Station to Chintpurni, Jawala Ji, Kangra, Chandigarh, Shimla',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-12',
-    name: 'Maruti Suzuki Grand Vitara AllGrip AWD',
-    vehicleType: 'AWD Mountain 5-Seater SUV',
-    tag: 'AllGrip 4x4 Snow & Hill Specialist',
-    seatingCapacity: '4 Passengers + 1 Chauffeur',
-    luggageCapacity: '3 Large Bags + 2 Backpacks',
-    image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Suzuki AllGrip Select 4WD System (Auto, Sport, Snow, Lock)',
-      'Panoramic Sunroof & 360-Degree View HD Camera',
-      '210mm High Ground Clearance for Tough Himalayan Bends',
-      'Ventilated Front Seats & Wireless Apple CarPlay / Android Auto',
-      'Mountain-Certified Chauffeur with 10+ Years Hill Experience'
-    ],
-    suitability: 'The top AWD choice for small groups heading to snow points in Manali, Rohtang, Sissu, and rainy mountain terrains.',
-    idealRoutes: 'Manali, Solang Valley, Atal Tunnel, Sissu, Jalori Pass, Shimla',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-13',
-    name: 'Mahindra Bolero Neo Plus (9-Seater Cab)',
-    vehicleType: '9-Seater Rugged Mountain Cab',
-    tag: 'Extra-Long Wheelbase 9-Seater Mountain Cab',
-    seatingCapacity: '9 Passengers + 1 Chauffeur',
-    luggageCapacity: '6 Large Bags + Heavy Roof Carrier',
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'High-Torque 2.2L mHawk Diesel Engine with Micro-Hybrid Tech',
-      'Multi-Terrain Technology (MTT) for Tough Village & Hill Roads',
-      'Spacious 2+3+4 Seating Layout with Dedicated Footsteps',
-      'Reinforced Roof Carrier with Heavy-Duty Tarpaulin Protection',
-      'Chilling Front & Rear AC with Heavy Heater Core'
-    ],
-    suitability: 'High-capacity workhorse designed for large pilgrimage groups, family temple yatras, and budget-friendly mountain group travel.',
-    idealRoutes: 'Amb Andaura Station, Chintpurni, Jawala Ji, Chamunda, Baglamukhi, Naina Devi',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-14',
     name: 'Toyota Fortuner 4x4 Sigma-4',
     vehicleType: 'Luxury 4WD Mountain SUV',
     tag: 'Spiti Valley & VIP Escort Ready',
@@ -303,67 +243,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-15',
-    name: 'Maruti Suzuki Ertiga Smart Hybrid',
-    vehicleType: 'Family MUV / SUV',
-    tag: 'Budget-Friendly Family 6-Seater',
-    seatingCapacity: '5 to 6 Passengers + 1 Chauffeur',
-    luggageCapacity: '3 Large Bags + Top Carrier',
-    image: '/images/cars/ertiga.jpg',
-    features: [
-      'Dual Air Conditioners with 2nd Row Blower Controls',
-      'Flexible 3-Row Foldable High-Comfort Seating',
-      'High Mileage & Low Carbon Footprint Hybrid',
-      'Clean Sanitized Cabin with Mobile Chargers',
-      'Real-Time GPS Tracking for Family Safety'
-    ],
-    suitability: 'Smart, cost-effective 6-seater vehicle providing great comfort for family holidays to Shimla, Manali, and Dharamshala.',
-    idealRoutes: 'Chandigarh to Shimla, Manali, Amritsar, Kalka, Amb Andaura',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-16',
-    name: 'Kia Carens Luxury Plus',
-    vehicleType: 'Premium 6-Seater MUV',
-    tag: 'Modern High-Tech Family Tourer',
-    seatingCapacity: '6 Passengers + 1 Chauffeur',
-    luggageCapacity: '3 Large Bags + Roof Carrier',
-    image: '/images/cars/carens.jpg',
-    features: [
-      'Ventilated Leatherette Seats & Rear Sunshades',
-      'One-Touch Electric Tumble 2nd Row Seating',
-      'Roof Mounted AC Vents for 2nd & 3rd Rows',
-      'Bose Premium 8-Speaker Audio System',
-      'Advanced All-Wheel Disc Brakes & Hill Hold'
-    ],
-    suitability: 'A stylish, modern 6-seater with cutting-edge comfort features, ample headroom, and refined mountain ride quality.',
-    idealRoutes: 'Chandigarh to Dharamshala, Dalhousie, Manali',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-17',
-    name: 'Maruti Suzuki Dzire (AC Sedan Taxi)',
-    vehicleType: 'Executive Sedan Taxi',
-    tag: 'Best for Couples & Small Families',
-    seatingCapacity: '4 Passengers + 1 Chauffeur',
-    luggageCapacity: '2 Large Suitcases + 2 Handbags',
-    image: '/images/cars/dzire.jpg',
-    features: [
-      'Chilling AC & High-Power Mountain Heater',
-      'Plush Sanitized Cabin & Fabric Upholstery',
-      'Bluetooth Music System with USB Fast Charging',
-      '378L Large Trunk Boot Space',
-      'Mountain-Certified Polite Chauffeur'
-    ],
-    suitability: 'Smooth, highly economical, and comfortable highway & hill drive for couples, honeymooners, and small families of up to 4.',
-    idealRoutes: 'Amb Andaura Station, Chandigarh to Shimla, Manali, Kalka transfers, Local Sightseeing',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-18',
+    _id: 'veh-12',
     name: 'Toyota Etios Platinum (Large Boot Taxi)',
     vehicleType: 'Executive Sedan Taxi',
     tag: 'Extra Legroom & Huge Boot (595L)',
@@ -383,53 +263,33 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-19',
-    name: 'Honda City V-Tec Executive Sedan',
-    vehicleType: 'Premium Sedan Taxi',
-    tag: 'Executive Class & Ultra Smooth Ride',
-    seatingCapacity: '4 Passengers + 1 Chauffeur',
-    luggageCapacity: '3 Large Bags + 2 Handbags',
-    image: '/images/cars/honda_city.jpg',
+    _id: 'veh-13',
+    name: 'Kia Carens Luxury Plus (7-Seater)',
+    vehicleType: 'Premium 6 to 7-Seater MUV',
+    tag: 'Modern High-Tech Family Tourer',
+    seatingCapacity: '6 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + Roof Carrier',
+    image: '/images/cars/carens.jpg',
     features: [
-      'Plush Soft Leather Seating & Rear Sunshade',
-      '506-Litre Deep Boot Capacity for Luggage',
-      'Cruise Control & High-Efficiency Silent Powertrain',
-      'Dual Air Conditioners with Rear AC Vents',
-      'Experienced Polite Uniformed Chauffeur'
+      'Ventilated Leatherette Seats & Rear Sunshades',
+      'One-Touch Electric Tumble 2nd Row Seating',
+      'Roof Mounted AC Vents for 2nd & 3rd Rows',
+      'Bose Premium 8-Speaker Audio System',
+      'Advanced All-Wheel Disc Brakes & Hill Hold'
     ],
-    suitability: 'First choice for business executives, delegates, honeymoon couples, and premium intercity highway travel.',
-    idealRoutes: 'Chandigarh Airport to Shimla, Dharamshala, Amritsar, Delhi NCR',
+    suitability: 'A stylish, modern 6-seater with cutting-edge comfort features, ample headroom, and refined mountain ride quality.',
+    idealRoutes: 'Chandigarh to Dharamshala, Dalhousie, Manali',
     isAvailable: true,
     isActive: true
   },
   {
-    _id: 'veh-20',
-    name: 'Luxury Force Tempo Traveller (12-Seater Maharaja)',
-    vehicleType: 'Luxury 12-Seater Maharaja',
-    tag: '1x1 Maharaja Pushback Seats',
-    seatingCapacity: '12 Passengers + 1 Chauffeur',
-    luggageCapacity: '12+ Large Suitcases (Dedicated Rear Boot)',
-    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80',
-    features: [
-      'Exclusive 1x1 Maharaja Wide Pushback Recliners',
-      'Powerful Central High-Cooling AC & Heating Blowers',
-      'LED TV Screen, Mic Setup & Music System',
-      'Individual Reading Lights & Mobile Chargers at Every Seat',
-      'Experienced Senior Mountain Tour Driver'
-    ],
-    suitability: 'The top choice for joint family tours, college friends, corporate offsites, and pilgrimage tours to Amritsar & Himachal.',
-    idealRoutes: 'Shimla Manali 6-Day Tour, Spiti Valley, Dharamshala Dalhousie, Chintpurni Yatra',
-    isAvailable: true,
-    isActive: true
-  },
-  {
-    _id: 'veh-21',
+    _id: 'veh-14',
     name: 'Force Tempo Traveller (17-Seater Deluxe Yatra Coach)',
     vehicleType: 'Deluxe 17-Seater Traveller',
     tag: 'Most Popular for Joint Families & Pilgrimage Groups',
     seatingCapacity: '17 Passengers + 1 Chauffeur',
     luggageCapacity: '16+ Bags (Dedicated Rear Boot & Top Carrier)',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
+    image: '/images/cars/tempo_traveller.jpg',
     features: [
       '2x1 Deluxe Reclining High-Back Seats with Armrests',
       'Central Chilling AC with Individual Air Vents',
@@ -443,7 +303,7 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-22',
+    _id: 'veh-15',
     name: 'Force Tempo Traveller (26-Seater Tourist Coach)',
     vehicleType: '26-Seater Tourist Coach / Mini Bus',
     tag: 'Large Group & Wedding Specialist',
@@ -463,22 +323,22 @@ export const INITIAL_VEHICLES = [
     isActive: true
   },
   {
-    _id: 'veh-23',
-    name: 'Force Urbania VIP Lounge (10 / 14-Seater)',
-    vehicleType: 'Executive VIP Luxury Van',
-    tag: 'Aircraft-Style Ultra Luxury Lounge',
-    seatingCapacity: '10 to 14 Passengers + 1 Chauffeur',
-    luggageCapacity: '14 Large Suitcases',
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80',
+    _id: 'veh-16',
+    name: 'Honda City V-Tec Executive Sedan',
+    vehicleType: 'Premium Sedan Taxi',
+    tag: 'Executive Class & Ultra Smooth Ride',
+    seatingCapacity: '4 Passengers + 1 Chauffeur',
+    luggageCapacity: '3 Large Bags + 2 Handbags',
+    image: '/images/cars/honda_city.jpg',
     features: [
-      'Mercedes-Derived Monocoque High-Roof Aerodynamic Body',
-      'Ultra-Quiet Cabin with Ambient Aircraft Lighting',
-      'Plush Soft Leatherette Aircraft Recliners with Armrests',
-      'Individual Air Vents with Air Purification',
-      'Panoramic UV-Protected Windows for Hill Sightseeing'
+      'Plush Soft Leather Seating & Rear Sunshade',
+      '506-Litre Deep Boot Capacity for Luggage',
+      'Cruise Control & High-Efficiency Silent Powertrain',
+      'Dual Air Conditioners with Rear AC Vents',
+      'Experienced Polite Uniformed Chauffeur'
     ],
-    suitability: 'The pinnacle of luxury group travel in North India for VIP delegations, destination weddings, and elite family road trips.',
-    idealRoutes: 'VIP Himachal Tours, Luxury Destination Weddings, Executive Offsites',
+    suitability: 'First choice for business executives, delegates, honeymoon couples, and premium intercity highway travel.',
+    idealRoutes: 'Chandigarh Airport to Shimla, Dharamshala, Amritsar, Delhi NCR',
     isAvailable: true,
     isActive: true
   }

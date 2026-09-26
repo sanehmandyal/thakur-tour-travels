@@ -1,32 +1,29 @@
 // Guaranteed high-resolution authentic automotive and destination images
 
 export const VEHICLE_IMAGES = {
-  dzire: '/images/cars/dzire.jpg',
-  etios: '/images/cars/etios.jpg',
-  hondacity: '/images/cars/honda_city.jpg',
+  cruiser: '/images/cars/cruiser.jpg',
+  trax: '/images/cars/cruiser.jpg',
+  toofan: '/images/cars/cruiser.jpg',
+  tempo: '/images/cars/tempo_traveller.jpg',
+  tempo12: '/images/cars/tempo_traveller.jpg',
+  tempo17: '/images/cars/tempo_traveller.jpg',
+  tempo26: '/images/cars/tempo_traveller.jpg',
   innova: '/images/cars/innova_crysta.jpg',
+  crysta: '/images/cars/innova_crysta.jpg',
   hycross: '/images/cars/hycross.jpg',
+  dzire: '/images/cars/dzire.jpg',
+  swift: '/images/cars/swift.jpg',
   ertiga: '/images/cars/ertiga.jpg',
   scorpio: '/images/cars/scorpio.jpg',
-  thar: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80',
-  cruiser: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80',
-  trax: 'https://images.unsplash.com/photo-1506015391300-4802dc74de2e?auto=format&fit=crop&w=1200&q=80',
+  bolero: '/images/cars/bolero.jpg',
+  thar: '/images/cars/thar.jpg',
   fortuner: '/images/cars/fortuner.jpg',
+  etios: '/images/cars/etios.jpg',
   carens: '/images/cars/carens.jpg',
-  creta: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1200&q=80',
-  xuv700: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80',
-  safari: 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=80',
-  harrier: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80',
-  rumion: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80',
-  grandvitara: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80',
-  boleroneo: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80',
-  tempo12: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80',
-  tempo17: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
-  tempo26: '/images/cars/tempo_traveller.jpg',
-  tempo: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80',
-  urbania: 'https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80',
+  hondacity: '/images/cars/honda_city.jpg',
+  urbania: '/images/cars/tempo_traveller.jpg',
   sedan: '/images/cars/dzire.jpg',
-  defaultCar: '/images/cars/innova_crysta.jpg'
+  defaultCar: '/images/cars/cruiser.jpg'
 };
 
 export const DESTINATION_IMAGES = {
