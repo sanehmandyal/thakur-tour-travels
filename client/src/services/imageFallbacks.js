@@ -41,7 +41,9 @@ export const DESTINATION_IMAGES = {
 };
 
 export function getVehicleImage(vehicle) {
-  if (vehicle?.image && (vehicle.image.startsWith('http') || vehicle.image.startsWith('/'))) return vehicle.image;
+  if (vehicle?.image && typeof vehicle.image === 'string' && vehicle.image.trim().length > 0) {
+    return vehicle.image;
+  }
   const name = String(vehicle?.name || vehicle?.vehicleType || '').toLowerCase();
   if (name.includes('thar')) return VEHICLE_IMAGES.thar;
   if (name.includes('cruiser') || name.includes('camper') || name.includes('bolero')) return VEHICLE_IMAGES.cruiser;
@@ -61,7 +63,9 @@ export function getVehicleImage(vehicle) {
 }
 
 export function getDestinationImage(dest) {
-  if (dest?.thumbnail && dest.thumbnail.startsWith('http')) return dest.thumbnail;
+  if (dest?.thumbnail && typeof dest.thumbnail === 'string' && dest.thumbnail.trim().length > 0) {
+    return dest.thumbnail;
+  }
   const name = String(dest?.name || dest?.location || dest?.title || '').toLowerCase();
   if (name.includes('chintpurni')) return DESTINATION_IMAGES.chintpurni;
   if (name.includes('jawala') || name.includes('jwala')) return DESTINATION_IMAGES.jawalaji;

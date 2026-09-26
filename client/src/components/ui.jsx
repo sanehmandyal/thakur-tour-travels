@@ -44,8 +44,8 @@ export function useFetch(url, params) {
     if (localData) {
       if (Array.isArray(localData)) {
         let items = localData.map((item) => {
-          if (resource === 'vehicles') return { ...item, image: getVehicleImage(item) };
-          if (resource === 'destinations') return { ...item, thumbnail: getDestinationImage(item) };
+          if (resource === 'vehicles') return { ...item, image: item.image || getVehicleImage(item) };
+          if (resource === 'destinations') return { ...item, thumbnail: item.thumbnail || getDestinationImage(item) };
           return item;
         });
 
@@ -86,8 +86,8 @@ export function useFetch(url, params) {
         let data = r.data;
         if (data?.items && Array.isArray(data.items)) {
           data.items = data.items.map((item) => {
-            if (url.includes('vehicle')) return { ...item, image: getVehicleImage(item) };
-            if (url.includes('destination')) return { ...item, thumbnail: getDestinationImage(item) };
+            if (url.includes('vehicle')) return { ...item, image: item.image || getVehicleImage(item) };
+            if (url.includes('destination')) return { ...item, thumbnail: item.thumbnail || getDestinationImage(item) };
             return item;
           });
           set({ data, loading: false, error: null });

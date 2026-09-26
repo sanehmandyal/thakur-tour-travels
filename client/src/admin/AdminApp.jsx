@@ -1027,7 +1027,7 @@ function DestinationsManager() {
         {destinations.map((dest) => (
           <div key={dest._id} className="rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
             <div className="aspect-[16/10] bg-slate-100 relative">
-              <img src={getDestinationImage(dest)} alt={dest.name} className="h-full w-full object-cover" />
+              <img src={dest.thumbnail || getDestinationImage(dest)} alt={dest.name} className="h-full w-full object-cover" />
               <span className="absolute top-2 left-2 rounded-full bg-navy/80 backdrop-blur px-2.5 py-0.5 text-[10px] font-bold text-white">
                 {dest.state}
               </span>
@@ -1197,7 +1197,7 @@ function VehiclesManager() {
         {vehicles.map((veh) => (
           <div key={veh._id} className="rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-xs flex flex-col justify-between">
             <div className="aspect-[16/10] bg-slate-100 relative">
-              <img src={getVehicleImage(veh)} alt={veh.name} className="h-full w-full object-cover" />
+              <img src={veh.image || getVehicleImage(veh)} alt={veh.name} className="h-full w-full object-cover" />
               <span className="absolute top-2 left-2 rounded-full bg-navy/80 backdrop-blur px-2.5 py-0.5 text-[10px] font-bold text-white">
                 {veh.vehicleType}
               </span>
