@@ -312,16 +312,32 @@ export default function Layout() {
         </div>
       </footer>
 
-      {/* Floating Action Button (Tablet & Desktop) */}
-      <div className="hidden md:flex fixed bottom-6 right-6 z-40 flex-col gap-3">
+      {/* Modern High-Converting Floating WhatsApp Widget (Desktop & Mobile) */}
+      <div className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-40 flex items-center gap-2.5">
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
-          aria-label="Chat on WhatsApp"
-          className="grid h-13 w-13 place-items-center rounded-full bg-[#25D366] text-white shadow-2xl transition hover:scale-110 active:scale-95 focus:outline-none"
+          aria-label="Chat directly on WhatsApp with Thakur Tour Coordinator"
+          className="group relative flex items-center gap-2 rounded-full bg-[#25D366] text-white p-3 sm:px-4 sm:py-3 shadow-2xl transition duration-300 hover:scale-105 active:scale-95 hover:bg-[#22c35e] focus:outline-none ring-4 ring-emerald-400/30"
         >
-          <MessageSquare size={24} />
+          {/* Animated Glowing Pulse */}
+          <span className="absolute -inset-0.5 rounded-full bg-[#25D366] opacity-40 animate-ping -z-10" />
+
+          {/* WhatsApp Official SVG */}
+          <svg className="h-6 w-6 sm:h-7 sm:w-7 fill-current shrink-0" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.004.571 1.95.874 2.806.875 3.177 0 5.767-2.586 5.767-5.766.001-3.18-2.585-5.758-5.767-5.758zm3.364 8.163c-.147.414-.734.773-1.029.816-.279.041-.622.062-1.849-.444-1.57-.648-2.58-2.247-2.658-2.352-.078-.105-.637-.848-.637-1.614 0-.766.402-1.144.545-1.299.143-.155.313-.194.417-.194.104 0 .209.002.3.007.095.006.223-.036.349.266.13.313.444 1.082.483 1.161.039.079.065.17.013.273-.052.105-.078.17-.156.262-.078.092-.164.205-.235.275-.078.078-.16.163-.069.32.091.157.404.667.868 1.079.596.53 1.099.694 1.256.772.156.079.248.066.339-.039.092-.105.391-.456.495-.613.105-.157.209-.13.348-.079.14.053.886.417 1.039.493.153.076.255.114.293.179.038.065.038.378-.109.792z" />
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.523 3.662 1.433 5.178L2 22l4.954-1.399C8.404 21.516 10.148 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.662 0-3.21-.502-4.508-1.363l-.323-.214-2.946.83.824-2.883-.231-.341C3.882 14.887 3.4 13.486 3.4 12c0-4.742 3.858-8.6 8.6-8.6s8.6 3.858 8.6 8.6-3.858 8.6-8.6 8.6z" />
+          </svg>
+
+          {/* Desktop Label with Online Status */}
+          <div className="hidden sm:flex flex-col text-left pr-1">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-100 flex items-center gap-1 leading-none">
+              <span className="h-2 w-2 rounded-full bg-emerald-200 animate-pulse" />
+              Online • Fast Reply
+            </span>
+            <span className="text-xs font-black text-white leading-tight">Chat on WhatsApp</span>
+          </div>
         </a>
       </div>
 
@@ -348,7 +364,7 @@ export default function Layout() {
           onClick={() => setQuickQuoteOpen(true)}
           className="btn-gold !py-2.5 !px-3 text-xs font-bold"
         >
-          Quote
+          Book Now
         </button>
       </div>
 

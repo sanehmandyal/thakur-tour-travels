@@ -7,7 +7,7 @@ import api from '../services/axiosClient';
 import { addToStore } from '../services/dataStore';
 
 export default function Contact() {
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm({
+  const { register, handleSubmit, getValues, reset, formState: { errors, isSubmitting } } = useForm({
     defaultValues: {
       numberOfPeople: 2,
       destination: 'Amb Andaura Station Pickup & Dharamshala Tour',
@@ -16,23 +16,71 @@ export default function Contact() {
   });
 
   const [submittedRef, setSubmittedRef] = useState(null);
+  const [lastInquiry, setLastInquiry] = useState(null);
+
+  const formatInquiryWhatsApp = (data, refCode) => {
+    const name = data.name || 'Guest Traveler';
+    const phone = data.phone || 'Not provided';
+    const email = data.email ? `\n✉️ *Email:* ${data.email}` : '';
+    const dest = data.destination || data.serviceType || 'Himachal Tour';
+    const service = data.serviceType ? `\n🎯 *Service Type:* ${data.serviceType}` : '';
+    const date = data.travelDate || 'Flexible';
+    const people = data.numberOfPeople || 1;
+    const msg = data.message ? `\n💬 *Requirements / Notes:* ${data.message}` : '';
+
+    return encodeURIComponent(
+      `🚖 *NEW TRAVEL INQUIRY*\n` +
+      `*Thakur Tour & Travels (Amb Andaura)*\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n` +
+      `📋 *Ref:* ${refCode}\n` +
+      `👤 *Name:* ${name}\n` +
+      `📞 *Phone / WhatsApp:* ${phone}${email}\n` +
+      `📍 *Destination / Tour:* ${dest}${service}\n` +
+      `🗓 *Travel Date:* ${date}\n` +
+      `👥 *Passengers:* ${people} Guests${msg}\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n` +
+      `Please provide best price quote & itinerary!`
+    );
+  };
 
   const onSubmit = async (data) => {
     const refId = `TTT-INQ-${Date.now().toString().slice(-5)}`;
+    const payload = {
+      ...data,
+      reference: refId,
+      status: 'New',
+      numberOfPeople: Number(data.numberOfPeople) || 1
+    };
+    setLastInquiry(payload);
+
     try {
-      const payload = {
-        ...data,
-        reference: refId,
-        status: 'New',
-        numberOfPeople: Number(data.numberOfPeople) || 1
-      };
       addToStore('inquiries', payload);
       await api.post('/inquiries', payload).catch(() => {});
       setSubmittedRef(refId);
+
+      // Auto-open WhatsApp chat with admin
+      const waText = formatInquiryWhatsApp(payload, refId);
+      window.open(`https://wa.me/916230351337?text=${waText}`, '_blank');
       reset();
     } catch {
       setSubmittedRef(refId);
+      const waText = formatInquiryWhatsApp(payload, refId);
+      window.open(`https://wa.me/916230351337?text=${waText}`, '_blank');
     }
+  };
+
+  const directWhatsAppInquiry = () => {
+    const values = getValues();
+    const refId = `TTT-WA-INQ-${Date.now().toString().slice(-4)}`;
+    addToStore('inquiries', {
+      ...values,
+      reference: refId,
+      status: 'New',
+      name: values.name || 'WhatsApp Direct Visitor'
+    });
+    const waText = formatInquiryWhatsApp(values, refId);
+    window.open(`https://wa.me/916230351337?text=${waText}`, '_blank');
+    setSubmittedRef(refId);
   };
 
   const googleMapsUrl = "https://maps.app.goo.gl/bDZyPwLejw7JTwCe6";
@@ -262,17 +310,17 @@ export default function Contact() {
 
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <a
-                      href={`https://wa.me/916230351337?text=Hi%20Thakur%20Tour%20%26%20Travel,%20I%20just%20submitted%20inquiry%20reference%20${submittedRef}.%20Please%20share%20the%20quote.`}
+                      href={`https://wa.me/916230351337?text=${formatInquiryWhatsApp(lastInquiry || {}, submittedRef)}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="btn bg-[#25D366] text-white hover:brightness-105 text-xs font-bold"
+                      className="btn bg-[#25D366] text-white hover:brightness-105 text-xs font-bold flex items-center justify-center gap-1.5 shadow-md !py-3"
                     >
                       <MessageSquare size={16} />
-                      Fast Confirmation on WhatsApp
+                      Open WhatsApp Chat with Admin
                     </a>
                     <button
                       onClick={() => setSubmittedRef(null)}
-                      className="btn-navy text-xs font-bold"
+                      className="btn-navy text-xs font-bold !py-3"
                     >
                       Submit Another Plan
                     </button>
@@ -396,21 +444,32 @@ export default function Contact() {
                       />
                     </label>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="btn-gold w-full !py-3.5 text-sm font-bold shadow-xl flex items-center justify-center gap-2 disabled:opacity-50"
-                    >
-                      <Send size={16} />
-                      <span>{isSubmitting ? 'Sending Request…' : 'Submit & Receive Free Custom Quote'}</span>
-                    </button>
+                    <div className="space-y-2.5 pt-2">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="btn-gold w-full !py-3.5 text-sm font-bold shadow-xl flex items-center justify-center gap-2 disabled:opacity-50"
+                      >
+                        <Send size={16} />
+                        <span>{isSubmitting ? 'Sending Request…' : 'Submit & Connect on WhatsApp (100% Free)'}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={directWhatsAppInquiry}
+                        className="btn bg-[#25D366] text-white hover:brightness-105 w-full !py-3 text-xs font-bold shadow-md flex items-center justify-center gap-2"
+                      >
+                        <MessageSquare size={16} />
+                        <span>⚡ Send Inquiry Directly to Admin on WhatsApp</span>
+                      </button>
+                    </div>
 
                     <div className="flex items-center justify-center gap-4 text-[11px] text-navy/60 pt-2">
                       <span className="flex items-center gap-1">
                         <ShieldCheck size={13} className="text-emerald-600" /> 100% Privacy Assured
                       </span>
                       <span>•</span>
-                      <span>Zero Spam Guaranteed</span>
+                      <span>Instant WhatsApp Alert to Admin</span>
                     </div>
                   </form>
                 </div>
