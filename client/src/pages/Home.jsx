@@ -74,46 +74,46 @@ export default function Home() {
         schema={homeSchema}
       />
 
-      {/* Hero Section */}
+      {/* Hero Section with Vibrant Snow Mountain Picture */}
       <section className="relative isolate overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1920&q=80"
-          alt="Breathtaking Himalayan mountain road in Himachal Pradesh"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=85"
+          alt="Breathtaking snow-capped Himalayan mountain range"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-95"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/95 via-navy/75 to-navy/40" />
 
-        <div className="mx-auto max-w-7xl px-4 pt-12 pb-24 sm:pt-20 sm:pb-32 lg:pt-28 text-white w-full">
+        <div className="mx-auto max-w-7xl px-4 pt-14 pb-28 sm:pt-24 sm:pb-36 lg:pt-32 text-white w-full">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="max-w-3xl w-full"
           >
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 backdrop-blur-md px-3 sm:px-4 py-1 text-[11px] sm:text-xs font-semibold text-gold border border-gold/30 mb-4 sm:mb-6 max-w-full">
-              <Sparkles size={13} className="shrink-0" />
-              <span>100% Customized Trips • Mountain Drivers</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-md px-3.5 sm:px-4 py-1 text-[11px] sm:text-xs font-bold text-gold border border-gold/40 mb-4 sm:mb-6 shadow-sm">
+              <Sparkles size={14} className="text-gold shrink-0" />
+              <span>100% Customized Trips • Verified Mountain Drivers</span>
             </div>
 
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight drop-shadow-md">
               Experience Himachal &amp; North India with Local Mountain Experts
             </h1>
 
-            <p className="mt-3 sm:mt-5 text-xs sm:text-base text-white/90 leading-relaxed max-w-2xl">
+            <p className="mt-4 sm:mt-6 text-sm sm:text-lg text-white/95 leading-relaxed max-w-2xl font-medium drop-shadow-sm">
               Handcrafted private tour packages, scenic road trips, and luxury taxi services across Shimla, Manali, Spiti Valley, Dharamshala, Dalhousie, and Amritsar.
             </p>
 
-            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <button
                 type="button"
                 onClick={() => setBookingItem({ title: 'General Custom Trip' })}
-                className="btn-gold !py-2.5 sm:!py-3 !px-5 sm:!px-7 text-xs sm:text-sm font-bold shadow-xl hover:shadow-2xl"
+                className="btn-gold !py-3 !px-7 text-xs sm:text-sm font-black shadow-2xl hover:shadow-gold/30 hover:scale-105 transition transform"
               >
                 Plan My Custom Trip
               </button>
               <Link
                 to="/tours"
-                className="btn bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white/25 !py-2.5 sm:!py-3 !px-5 sm:!px-6 text-xs sm:text-sm font-semibold"
+                className="btn bg-white/20 backdrop-blur-md border border-white/40 text-white hover:bg-white/30 !py-3 !px-6 text-xs sm:text-sm font-bold shadow-lg"
               >
                 Explore Tour Packages
               </Link>

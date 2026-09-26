@@ -25,7 +25,9 @@ import {
   X,
   ExternalLink,
   Save,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Upload,
+  Check
 } from 'lucide-react';
 import { LineChart, Line, BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
 import toast from 'react-hot-toast';
@@ -43,6 +45,39 @@ import {
   saveSettingsStore
 } from '../services/dataStore';
 import { VEHICLE_IMAGES, DESTINATION_IMAGES, getVehicleImage, getDestinationImage } from '../services/imageFallbacks';
+
+// Helper to optimize and convert user uploaded files to Data URL
+function processImageFile(file, onLoaded) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const rawData = e.target.result;
+    const img = new Image();
+    img.onload = () => {
+      const maxDim = 1200;
+      let { width, height } = img;
+      if (width > maxDim || height > maxDim) {
+        if (width > height) {
+          height = Math.round((height * maxDim) / width);
+          width = maxDim;
+        } else {
+          width = Math.round((width * maxDim) / height);
+          height = maxDim;
+        }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      const optimized = canvas.toDataURL('image/jpeg', 0.82);
+      onLoaded(optimized);
+    };
+    img.onerror = () => onLoaded(rawData);
+    img.src = rawData;
+  };
+  reader.readAsDataURL(file);
+}
 
 const NAV_ITEMS = [
   ['', 'Dashboard', LayoutDashboard],
@@ -90,7 +125,7 @@ function AdminShell() {
   const unreadCount = unreadBookings + unreadInquiries;
 
   return (
-    <div className="min-h-screen bg-slate-100 md:flex">
+    <div className="min-h-screen bg-slate-100 md:flex w-full overflow-x-hidden">
       {/* Sidebar */}
       <aside
         className={`fixed inset-y-0 left-0 z-50 w-64 overflow-y-auto bg-navy p-5 text-white transition-transform md:static md:translate-x-0 ${
@@ -161,7 +196,7 @@ function AdminShell() {
       {/* Main Content Area */}
       <div className="min-w-0 flex-1 flex flex-col">
         {/* Top Header */}
-        <header className="flex items-center justify-between bg-white px-6 py-3.5 shadow-xs border-b border-slate-200">
+        <header className="flex items-center justify-between bg-white px-4 sm:px-6 py-3.5 shadow-xs border-b border-slate-200">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setMobileNavOpen(true)}
@@ -188,7 +223,7 @@ function AdminShell() {
         </header>
 
         {/* Sub-view Outlet */}
-        <main className="p-4 sm:p-6 lg:p-8 flex-1 overflow-y-auto">
+        <main className="p-3 sm:p-6 lg:p-8 flex-1 overflow-y-auto">
           <Outlet />
         </main>
       </div>
@@ -244,30 +279,30 @@ function DashboardView() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-black text-navy">Business Overview</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-navy">Business Overview</h1>
           <p className="text-xs text-navy/60">Live summary of incoming bookings, customer inquiries, and fleet status.</p>
         </div>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {statCards.map((c, i) => (
-          <div key={i} className="rounded-2xl bg-white p-5 shadow-xs border border-slate-200">
-            <p className="text-xs font-semibold text-navy/60">{c.label}</p>
-            <p className="mt-2 text-3xl font-black text-navy">{c.value}</p>
+          <div key={i} className="rounded-2xl bg-white p-4 sm:p-5 shadow-xs border border-slate-200">
+            <p className="text-[11px] sm:text-xs font-semibold text-navy/60">{c.label}</p>
+            <p className="mt-1 sm:mt-2 text-2xl sm:text-3xl font-black text-navy">{c.value}</p>
           </div>
         ))}
       </div>
 
       {/* Chart Section */}
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="rounded-2xl bg-white p-5 shadow-xs border border-slate-200 lg:col-span-2">
+        <div className="rounded-2xl bg-white p-4 sm:p-5 shadow-xs border border-slate-200 lg:col-span-2">
           <h3 className="text-sm font-bold text-navy mb-4">Tour &amp; Cab Inquiries Trend</h3>
-          <div className="h-64">
+          <div className="h-56 sm:h-64">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={trendData}>
-                <XAxis dataKey="_id" stroke="#64748b" fontSize={12} />
-                <YAxis stroke="#64748b" fontSize={12} allowDecimals={false} />
+                <XAxis dataKey="_id" stroke="#64748b" fontSize={11} />
+                <YAxis stroke="#64748b" fontSize={11} allowDecimals={false} />
                 <Tooltip />
                 <Line type="monotone" dataKey="inquiries" stroke="#4FA8DC" strokeWidth={3} dot={{ r: 4 }} name="Inquiries" />
                 <Line type="monotone" dataKey="bookings" stroke="#F6AA1C" strokeWidth={3} dot={{ r: 4 }} name="Bookings" />
@@ -276,7 +311,7 @@ function DashboardView() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-white p-5 shadow-xs border border-slate-200">
+        <div className="rounded-2xl bg-white p-4 sm:p-5 shadow-xs border border-slate-200">
           <h3 className="text-sm font-bold text-navy mb-4">Quick Management Shortcuts</h3>
           <div className="space-y-2">
             <NavLink to="/admin/bookings" className="flex items-center justify-between rounded-xl bg-slate-50 p-3 hover:bg-slate-100 transition text-xs font-bold text-navy">
@@ -349,28 +384,28 @@ function BookingsManager() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-navy">Bookings &amp; Custom Quotes</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-navy">Bookings &amp; Custom Quotes</h1>
           <p className="text-xs text-navy/60">Review real incoming customer itineraries, confirm dates, and contact guests.</p>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full sm:w-auto">
           <input
             type="text"
             placeholder="Search by customer / phone / ref..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="input !py-1.5 text-xs !w-64"
+            className="input !py-1.5 text-xs w-full sm:!w-64"
           />
         </div>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex gap-2 border-b border-slate-200 pb-3 overflow-x-auto">
+      <div className="flex gap-2 border-b border-slate-200 pb-3 overflow-x-auto no-scrollbar whitespace-nowrap">
         {['All', 'Pending', 'Confirmed', 'Completed', 'Cancelled'].map((st) => (
           <button
             key={st}
             onClick={() => setFilterStatus(st)}
-            className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition ${
+            className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition shrink-0 ${
               filterStatus === st
                 ? 'bg-navy text-white'
                 : 'bg-white text-navy/70 hover:bg-slate-200 border border-slate-200'
@@ -383,7 +418,7 @@ function BookingsManager() {
 
       {/* Bookings Table */}
       <div className="overflow-x-auto rounded-2xl bg-white shadow-xs border border-slate-200">
-        <table className="w-full text-left text-xs">
+        <table className="w-full text-left text-xs min-w-[650px]">
           <thead className="bg-slate-50 border-b border-slate-200 text-navy/60 font-bold uppercase tracking-wider">
             <tr>
               <th className="p-3.5">Ref ID</th>
@@ -470,7 +505,7 @@ function BookingsManager() {
       {/* Booking Details Modal */}
       {selectedBooking && (
         <div className="fixed inset-0 z-[100] grid place-items-center bg-navy/60 backdrop-blur-sm p-4" onClick={() => setSelectedBooking(null)}>
-          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
+          <div className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between border-b pb-3">
               <h3 className="font-extrabold text-lg text-navy">Booking: {selectedBooking.reference || selectedBooking._id}</h3>
               <button onClick={() => setSelectedBooking(null)}><X size={18} /></button>
@@ -546,16 +581,16 @@ function InquiriesManager() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-navy">Customer Trip Inquiries</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-navy">Customer Trip Inquiries</h1>
           <p className="text-xs text-navy/60">Manage direct quote inquiries sent from the contact &amp; trip planner forms.</p>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 overflow-x-auto no-scrollbar whitespace-nowrap">
           {['All', 'New', 'Contacted', 'Resolved'].map((st) => (
             <button
               key={st}
               onClick={() => setFilter(st)}
-              className={`rounded-xl px-3 py-1 text-xs font-bold transition ${
+              className={`rounded-xl px-3 py-1 text-xs font-bold transition shrink-0 ${
                 filter === st ? 'bg-navy text-white' : 'bg-white text-navy/70 border border-slate-200'
               }`}
             >
@@ -572,7 +607,7 @@ function InquiriesManager() {
             `Hi ${inq.name || 'Guest'}, thanks for reaching out to Thakur Tour & Travel regarding ${inq.destination || 'your trip'}.`
           )}`;
           return (
-            <div key={inq._id} className="rounded-2xl bg-white p-5 border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div key={inq._id} className="rounded-2xl bg-white p-4 sm:p-5 border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <h3 className="font-extrabold text-sm text-navy">{inq.name || 'Guest Inquiry'}</h3>
@@ -649,7 +684,7 @@ function InquiriesManager() {
   );
 }
 
-// 4. TOURS MANAGER
+// 4. TOURS MANAGER WITH DEVICE IMAGE UPLOAD
 function ToursManager() {
   const [tours, setTours] = useState(() => getStore('tours'));
   const [modalTour, setModalTour] = useState(null);
@@ -686,7 +721,7 @@ function ToursManager() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-navy">Tour Packages Management</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-navy">Tour Packages Management</h1>
           <p className="text-xs text-navy/60">Add, update, or remove tour itineraries. (Changes update the live website immediately).</p>
         </div>
 
@@ -753,16 +788,16 @@ function ToursManager() {
         ))}
       </div>
 
-      {/* Tour Add/Edit Modal */}
+      {/* Tour Add/Edit Modal with Device Image Upload */}
       {modalTour && (
         <div className="fixed inset-0 z-[100] grid place-items-center bg-navy/60 backdrop-blur-sm p-4 overflow-y-auto" onClick={() => setModalTour(null)}>
-          <div className="my-8 w-full max-w-2xl rounded-3xl bg-white p-6 shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
+          <div className="my-8 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white p-5 sm:p-7 shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between border-b pb-3">
               <h3 className="font-extrabold text-lg text-navy">{modalTour._id ? 'Edit Tour Package' : 'Create New Tour Package'}</h3>
               <button onClick={() => setModalTour(null)}><X size={18} /></button>
             </div>
 
-            <form onSubmit={handleSave} className="space-y-3 max-h-[75vh] overflow-y-auto pr-2">
+            <form onSubmit={handleSave} className="space-y-3 pr-1">
               <div>
                 <label className="block text-xs font-bold text-navy">Package Title *</label>
                 <input
@@ -775,7 +810,7 @@ function ToursManager() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-bold text-navy">Duration *</label>
                   <input
@@ -816,42 +851,72 @@ function ToursManager() {
                 />
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-navy">Thumbnail Image URL *</label>
+              {/* Image Picker & Device File Upload */}
+              <div className="space-y-2 rounded-2xl bg-slate-50 p-4 border border-slate-200">
+                <label className="block text-xs font-bold text-navy">Tour Image (Upload or URL) *</label>
+                
+                <div className="flex flex-wrap gap-2 items-center">
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 rounded-xl bg-sky text-white hover:bg-sky/90 px-3.5 py-2 text-xs font-bold transition shadow-sm">
+                    <Upload size={14} />
+                    <span>Upload Image from Device / Gallery</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          processImageFile(file, (dataUrl) => {
+                            setModalTour((prev) => ({ ...prev, thumbnail: dataUrl }));
+                            toast.success('Image loaded from your device!');
+                          });
+                        }
+                      }}
+                    />
+                  </label>
+                  <span className="text-[11px] text-navy/50 font-semibold">or paste direct image URL below:</span>
+                </div>
+
                 <input
                   type="text"
                   required
                   value={modalTour.thumbnail || ''}
                   onChange={(e) => setModalTour({ ...modalTour, thumbnail: e.target.value })}
-                  className="input mt-1 text-xs"
-                  placeholder="https://images.unsplash.com/..."
+                  className="input text-xs bg-white"
+                  placeholder="https://images.unsplash.com/... or uploaded file"
                 />
+
                 {/* Image Preview & Quick Presets */}
-                <div className="mt-2 flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3 pt-1">
                   {modalTour.thumbnail && (
-                    <img src={modalTour.thumbnail} alt="Preview" className="h-12 w-20 rounded-lg object-cover border" />
+                    <div className="flex items-center gap-2">
+                      <img src={modalTour.thumbnail} alt="Preview" className="h-14 w-24 rounded-lg object-cover border border-slate-300 shadow-xs" />
+                      <span className="text-[11px] text-emerald-600 font-bold flex items-center gap-1">
+                        <Check size={12} /> Image Ready
+                      </span>
+                    </div>
                   )}
                   <div className="flex flex-wrap gap-1">
                     <button
                       type="button"
                       onClick={() => setModalTour({ ...modalTour, thumbnail: DESTINATION_IMAGES.chintpurni })}
-                      className="text-[10px] bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-navy"
+                      className="text-[10px] bg-white border border-slate-200 hover:bg-slate-100 px-2 py-1 rounded text-navy font-semibold"
                     >
-                      Temple Pic
+                      Temple Preset
                     </button>
                     <button
                       type="button"
                       onClick={() => setModalTour({ ...modalTour, thumbnail: DESTINATION_IMAGES.manali })}
-                      className="text-[10px] bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-navy"
+                      className="text-[10px] bg-white border border-slate-200 hover:bg-slate-100 px-2 py-1 rounded text-navy font-semibold"
                     >
-                      Manali Pic
+                      Manali Preset
                     </button>
                     <button
                       type="button"
                       onClick={() => setModalTour({ ...modalTour, thumbnail: DESTINATION_IMAGES.shimla })}
-                      className="text-[10px] bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-navy"
+                      className="text-[10px] bg-white border border-slate-200 hover:bg-slate-100 px-2 py-1 rounded text-navy font-semibold"
                     >
-                      Shimla Pic
+                      Shimla Preset
                     </button>
                   </div>
                 </div>
@@ -899,7 +964,7 @@ function ToursManager() {
   );
 }
 
-// 5. DESTINATIONS MANAGER
+// 5. DESTINATIONS MANAGER WITH DEVICE IMAGE UPLOAD
 function DestinationsManager() {
   const [destinations, setDestinations] = useState(() => getStore('destinations'));
   const [modalDest, setModalDest] = useState(null);
@@ -936,7 +1001,7 @@ function DestinationsManager() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-navy">Destinations Management</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-navy">Destinations Management</h1>
           <p className="text-xs text-navy/60">Configure pilgrimage spots, hill stations, and tourist hubs displayed on the website.</p>
         </div>
 
@@ -988,19 +1053,20 @@ function DestinationsManager() {
         ))}
       </div>
 
+      {/* Destination Add/Edit Modal with Device Image Upload */}
       {modalDest && (
         <div className="fixed inset-0 z-[100] grid place-items-center bg-navy/60 backdrop-blur-sm p-4 overflow-y-auto" onClick={() => setModalDest(null)}>
-          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
+          <div className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl bg-white p-5 sm:p-7 shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between border-b pb-3">
               <h3 className="font-extrabold text-lg text-navy">{modalDest._id ? 'Edit Destination' : 'Add Destination'}</h3>
               <button onClick={() => setModalDest(null)}><X size={18} /></button>
             </div>
-            <form onSubmit={handleSave} className="space-y-3 max-h-[75vh] overflow-y-auto pr-2">
+            <form onSubmit={handleSave} className="space-y-3 pr-1">
               <div>
                 <label className="block text-xs font-bold text-navy">Destination Name *</label>
                 <input required type="text" value={modalDest.name || ''} onChange={(e) => setModalDest({ ...modalDest, name: e.target.value })} className="input mt-1 text-xs" placeholder="e.g. Mata Chintpurni Devi Shrine" />
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
                   <label className="block text-xs font-bold text-navy">State / Region</label>
                   <input type="text" value={modalDest.state || ''} onChange={(e) => setModalDest({ ...modalDest, state: e.target.value })} className="input mt-1 text-xs" placeholder="Himachal Pradesh" />
@@ -1014,15 +1080,45 @@ function DestinationsManager() {
                 <label className="block text-xs font-bold text-navy">Best Time To Visit</label>
                 <input type="text" value={modalDest.bestTimeToVisit || ''} onChange={(e) => setModalDest({ ...modalDest, bestTimeToVisit: e.target.value })} className="input mt-1 text-xs" placeholder="e.g. Throughout the year / Navratris" />
               </div>
-              <div>
-                <label className="block text-xs font-bold text-navy">Thumbnail Image URL *</label>
-                <input type="text" required value={modalDest.thumbnail || ''} onChange={(e) => setModalDest({ ...modalDest, thumbnail: e.target.value })} className="input mt-1 text-xs" />
+
+              {/* Image Picker with Device Upload */}
+              <div className="space-y-2 rounded-2xl bg-slate-50 p-4 border border-slate-200">
+                <label className="block text-xs font-bold text-navy">Destination Image *</label>
+                
+                <div className="flex flex-wrap gap-2 items-center">
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 rounded-xl bg-sky text-white hover:bg-sky/90 px-3.5 py-2 text-xs font-bold transition shadow-sm">
+                    <Upload size={14} />
+                    <span>Upload Image from Device</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          processImageFile(file, (dataUrl) => {
+                            setModalDest((prev) => ({ ...prev, thumbnail: dataUrl }));
+                            toast.success('Destination image loaded from device!');
+                          });
+                        }
+                      }}
+                    />
+                  </label>
+                  <span className="text-[11px] text-navy/50 font-semibold">or image URL:</span>
+                </div>
+
+                <input type="text" required value={modalDest.thumbnail || ''} onChange={(e) => setModalDest({ ...modalDest, thumbnail: e.target.value })} className="input text-xs bg-white" placeholder="https://..." />
+                
                 {modalDest.thumbnail && (
-                  <div className="mt-2">
-                    <img src={modalDest.thumbnail} alt="Preview" className="h-16 w-28 rounded-lg object-cover border" />
+                  <div className="mt-2 flex items-center gap-2">
+                    <img src={modalDest.thumbnail} alt="Preview" className="h-14 w-24 rounded-lg object-cover border border-slate-300 shadow-xs" />
+                    <span className="text-[11px] text-emerald-600 font-bold flex items-center gap-1">
+                      <Check size={12} /> Image Ready
+                    </span>
                   </div>
                 )}
               </div>
+
               <div>
                 <label className="block text-xs font-bold text-navy">Description</label>
                 <textarea rows="3" value={modalDest.shortDescription || ''} onChange={(e) => setModalDest({ ...modalDest, shortDescription: e.target.value })} className="input mt-1 text-xs" placeholder="Overview and significance for travelers." />
@@ -1039,7 +1135,7 @@ function DestinationsManager() {
   );
 }
 
-// 6. FLEET & CABS MANAGER
+// 6. FLEET & CABS MANAGER WITH DEVICE IMAGE UPLOAD
 function VehiclesManager() {
   const [vehicles, setVehicles] = useState(() => getStore('vehicles'));
   const [modalVeh, setModalVeh] = useState(null);
@@ -1076,7 +1172,7 @@ function VehiclesManager() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-navy">Fleet &amp; Cabs Management</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-navy">Fleet &amp; Cabs Management</h1>
           <p className="text-xs text-navy/60">Add, edit, or remove taxi models, SUVs, Thar 4x4, Bolero Cruiser, and Tempo Travellers.</p>
         </div>
 
@@ -1129,19 +1225,20 @@ function VehiclesManager() {
         ))}
       </div>
 
+      {/* Vehicle Add/Edit Modal with Device Image Upload */}
       {modalVeh && (
         <div className="fixed inset-0 z-[100] grid place-items-center bg-navy/60 backdrop-blur-sm p-4 overflow-y-auto" onClick={() => setModalVeh(null)}>
-          <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
+          <div className="w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl bg-white p-5 sm:p-7 shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between border-b pb-3">
               <h3 className="font-extrabold text-lg text-navy">{modalVeh._id ? 'Edit Fleet Vehicle' : 'Add New Vehicle'}</h3>
               <button onClick={() => setModalVeh(null)}><X size={18} /></button>
             </div>
-            <form onSubmit={handleSave} className="space-y-3 max-h-[75vh] overflow-y-auto pr-2">
+            <form onSubmit={handleSave} className="space-y-3 pr-1">
               <div>
                 <label className="block text-xs font-bold text-navy">Vehicle Model Name *</label>
                 <input required type="text" value={modalVeh.name || ''} onChange={(e) => setModalVeh({ ...modalVeh, name: e.target.value })} className="input mt-1 text-xs" placeholder="e.g. Mahindra Thar 4x4 Off-Roader" />
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
                   <label className="block text-xs font-bold text-navy">Category / Type</label>
                   <input type="text" value={modalVeh.vehicleType || ''} onChange={(e) => setModalVeh({ ...modalVeh, vehicleType: e.target.value })} className="input mt-1 text-xs" placeholder="e.g. SUV, 4x4, Tempo, Sedan" />
@@ -1151,7 +1248,7 @@ function VehiclesManager() {
                   <input type="text" value={modalVeh.seatingCapacity || ''} onChange={(e) => setModalVeh({ ...modalVeh, seatingCapacity: e.target.value })} className="input mt-1 text-xs" placeholder="4 + 1 / 6 + 1 / 17 Seater" />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div>
                   <label className="block text-xs font-bold text-navy">Luggage Capacity</label>
                   <input type="text" value={modalVeh.luggageCapacity || ''} onChange={(e) => setModalVeh({ ...modalVeh, luggageCapacity: e.target.value })} className="input mt-1 text-xs" placeholder="3 Bags / Roof Carrier" />
@@ -1168,25 +1265,54 @@ function VehiclesManager() {
                   </select>
                 </div>
               </div>
-              <div>
-                <label className="block text-xs font-bold text-navy">Vehicle Image URL *</label>
-                <input type="text" required value={modalVeh.image || ''} onChange={(e) => setModalVeh({ ...modalVeh, image: e.target.value })} className="input mt-1 text-xs" placeholder="https://..." />
+
+              {/* Image Picker with Device File Upload */}
+              <div className="space-y-2 rounded-2xl bg-slate-50 p-4 border border-slate-200">
+                <label className="block text-xs font-bold text-navy">Vehicle Photo *</label>
+                
+                <div className="flex flex-wrap gap-2 items-center">
+                  <label className="cursor-pointer inline-flex items-center gap-1.5 rounded-xl bg-sky text-white hover:bg-sky/90 px-3.5 py-2 text-xs font-bold transition shadow-sm">
+                    <Upload size={14} />
+                    <span>Upload Image from Device / Gallery</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          processImageFile(file, (dataUrl) => {
+                            setModalVeh((prev) => ({ ...prev, image: dataUrl }));
+                            toast.success('Car image loaded from device!');
+                          });
+                        }
+                      }}
+                    />
+                  </label>
+                  <span className="text-[11px] text-navy/50 font-semibold">or image URL:</span>
+                </div>
+
+                <input type="text" required value={modalVeh.image || ''} onChange={(e) => setModalVeh({ ...modalVeh, image: e.target.value })} className="input text-xs bg-white" placeholder="https://..." />
                 
                 {/* Quick Vehicle Presets */}
-                <div className="mt-2 flex flex-wrap gap-1.5 items-center">
+                <div className="flex flex-wrap gap-1.5 items-center pt-1">
                   <span className="text-[10px] text-navy/60 font-bold">Quick Presets:</span>
-                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.innova })} className="text-[10px] bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-navy">Innova</button>
-                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.thar })} className="text-[10px] bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-navy">Thar 4x4</button>
-                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.cruiser })} className="text-[10px] bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-navy">Cruiser</button>
-                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.tempo })} className="text-[10px] bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-navy">Tempo Traveller</button>
-                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.dzire })} className="text-[10px] bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded text-navy">Dzire Sedan</button>
+                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.innova })} className="text-[10px] bg-white border border-slate-200 hover:bg-slate-100 px-2 py-0.5 rounded text-navy font-semibold">Innova</button>
+                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.thar })} className="text-[10px] bg-white border border-slate-200 hover:bg-slate-100 px-2 py-0.5 rounded text-navy font-semibold">Thar 4x4</button>
+                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.cruiser })} className="text-[10px] bg-white border border-slate-200 hover:bg-slate-100 px-2 py-0.5 rounded text-navy font-semibold">Cruiser</button>
+                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.tempo })} className="text-[10px] bg-white border border-slate-200 hover:bg-slate-100 px-2 py-0.5 rounded text-navy font-semibold">Tempo Traveller</button>
+                  <button type="button" onClick={() => setModalVeh({ ...modalVeh, image: VEHICLE_IMAGES.dzire })} className="text-[10px] bg-white border border-slate-200 hover:bg-slate-100 px-2 py-0.5 rounded text-navy font-semibold">Dzire Sedan</button>
                 </div>
                 {modalVeh.image && (
-                  <div className="mt-2">
-                    <img src={modalVeh.image} alt="Preview" className="h-16 w-28 rounded-lg object-cover border" />
+                  <div className="mt-2 flex items-center gap-2">
+                    <img src={modalVeh.image} alt="Preview" className="h-14 w-24 rounded-lg object-cover border border-slate-300 shadow-xs" />
+                    <span className="text-[11px] text-emerald-600 font-bold flex items-center gap-1">
+                      <Check size={12} /> Image Ready
+                    </span>
                   </div>
                 )}
               </div>
+
               <div>
                 <label className="block text-xs font-bold text-navy">Suitability &amp; Features</label>
                 <textarea rows="2" value={modalVeh.suitability || ''} onChange={(e) => setModalVeh({ ...modalVeh, suitability: e.target.value })} className="input mt-1 text-xs" placeholder="Best for Spiti, Ladakh, Shaktipeeth yatras, family vacation." />
@@ -1223,11 +1349,11 @@ function SettingsManager() {
   return (
     <div className="max-w-3xl space-y-6">
       <div>
-        <h1 className="text-2xl font-black text-navy">Website &amp; Company Settings</h1>
+        <h1 className="text-xl sm:text-2xl font-black text-navy">Website &amp; Company Settings</h1>
         <p className="text-xs text-navy/60">Update official phone numbers, WhatsApp lines, office addresses, and about info.</p>
       </div>
 
-      <form onSubmit={handleSave} className="rounded-3xl bg-white p-6 sm:p-8 shadow-xs border border-slate-200 space-y-4">
+      <form onSubmit={handleSave} className="rounded-3xl bg-white p-5 sm:p-8 shadow-xs border border-slate-200 space-y-4">
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-bold text-navy">Company Brand Name</label>
@@ -1295,7 +1421,7 @@ function TestimonialsManager() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-black text-navy">Customer Reviews &amp; Testimonials</h1>
+        <h1 className="text-xl sm:text-2xl font-black text-navy">Customer Reviews &amp; Testimonials</h1>
         <p className="text-xs text-navy/60">Real tourist reviews and ratings displayed on homepage and tour pages.</p>
       </div>
 
@@ -1342,7 +1468,7 @@ function BlogManager() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-black text-navy">Travel Guides &amp; Blog Posts</h1>
+        <h1 className="text-xl sm:text-2xl font-black text-navy">Travel Guides &amp; Blog Posts</h1>
         <p className="text-xs text-navy/60">Himachal &amp; North India travel tips, pilgrimage guides, and route advice.</p>
       </div>
 
