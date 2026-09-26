@@ -190,22 +190,35 @@ export function TourCard({ t, onBook, onExplore }) {
           </div>
         )}
 
-        <div className="mt-auto pt-5 border-t border-slate-100 flex items-center justify-between gap-2">
-          <button
-            type="button"
-            onClick={() => onExplore ? onExplore(t) : onBook(t)}
-            className="text-xs font-semibold text-navy hover:text-sky transition"
+        <div className="mt-auto pt-5 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
+          <a
+            href={`https://wa.me/916230351337?text=${encodeURIComponent(`Hello Thakur Tour & Travels, I want to inquire about the tour package: "${t.title}" (${t.duration || 'Himachal Package'}). Please share customized itinerary & quote.`)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="btn bg-[#25D366] text-white hover:brightness-105 !py-2 !px-3 text-xs font-bold flex items-center gap-1 shrink-0 shadow-sm"
+            title="Chat directly with Admin on WhatsApp"
+            onClick={(e) => e.stopPropagation()}
           >
-            View Itinerary
-          </button>
-          
-          <button
-            type="button"
-            onClick={() => onBook(t)}
-            className="btn-gold !py-2 !px-4 text-xs font-bold shadow-md hover:shadow-lg"
-          >
-            Get Custom Quote
-          </button>
+            <MessageSquare size={13} /> WhatsApp
+          </a>
+
+          <div className="flex items-center gap-2 flex-1 justify-end">
+            <button
+              type="button"
+              onClick={() => onExplore ? onExplore(t) : onBook(t)}
+              className="text-xs font-semibold text-navy hover:text-sky transition hidden sm:inline-block"
+            >
+              Itinerary
+            </button>
+            
+            <button
+              type="button"
+              onClick={() => onBook(t)}
+              className="btn-gold !py-2 !px-3.5 text-xs font-bold shadow-md hover:shadow-lg flex-1 sm:flex-initial text-center justify-center"
+            >
+              Get Quote
+            </button>
+          </div>
         </div>
       </div>
     </article>

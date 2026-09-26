@@ -216,17 +216,23 @@ export default function Cabs() {
                       </div>
                     )}
 
-                    {/* CTA Button (NO PRICES) */}
-                    <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-xs font-semibold text-emerald-600 flex items-center gap-1">
-                        ✓ Hill Permit Ready
-                      </span>
+                    {/* CTA Buttons */}
+                    <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
+                      <a
+                        href={`https://wa.me/916230351337?text=${encodeURIComponent(`Hello Thakur Tour & Travels, I want to inquire about renting the ${veh.name} (${veh.vehicleType}). Please share rates & availability.`)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn bg-[#25D366] text-white hover:brightness-105 !py-2.5 !px-3 text-xs font-bold flex items-center gap-1.5 shadow-sm shrink-0"
+                        title="Chat directly with Admin on WhatsApp"
+                      >
+                        <MessageSquare size={14} /> WhatsApp
+                      </a>
                       <button
                         type="button"
                         onClick={() => setBookingVehicle(veh)}
-                        className="btn-gold !py-2.5 !px-5 text-xs font-bold shadow-md hover:shadow-lg"
+                        className="btn-gold !py-2.5 !px-4 text-xs font-bold shadow-md hover:shadow-lg flex-1 text-center justify-center"
                       >
-                        Book Cab / Get Quote
+                        Book / Get Quote
                       </button>
                     </div>
                   </div>

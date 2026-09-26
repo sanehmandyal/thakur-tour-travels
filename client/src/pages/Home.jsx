@@ -36,6 +36,17 @@ export default function Home() {
     });
   };
 
+  const handleHeroWhatsApp = () => {
+    const text = `Hello Thakur Tour & Travel, I am inquiring about a trip:
+📍 Pickup: ${fromLocation || 'Amb Andaura'}
+🏔️ Destination: ${toDestination || 'Himachal Tour'}
+📅 Date: ${travelDate || 'Flexible'}
+👥 Group Size: ${travelersCount}
+
+Please share tour options and best quote.`;
+    window.open(`https://wa.me/916230351337?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
   const handleExploreTours = () => {
     navigate(`/tours?q=${encodeURIComponent(toDestination || fromLocation)}`);
   };
@@ -245,17 +256,25 @@ export default function Home() {
           <div className="lg:col-span-2 flex flex-col gap-1.5">
             <button
               type="submit"
-              className="btn-gold w-full !py-2.5 text-xs font-bold flex items-center justify-center gap-1.5 shadow-md hover:shadow-lg transition active:scale-95"
+              className="btn-gold w-full !py-2 text-xs font-bold flex items-center justify-center gap-1.5 shadow-md hover:shadow-lg transition active:scale-95"
             >
-              <Sparkles size={14} className="shrink-0" />
-              <span>Plan &amp; Get Quote</span>
+              <Sparkles size={13} className="shrink-0" />
+              <span>Plan &amp; Quote</span>
+            </button>
+            <button
+              type="button"
+              onClick={handleHeroWhatsApp}
+              className="w-full rounded-xl bg-[#25D366] text-white hover:brightness-105 py-1.5 px-2 text-xs font-bold flex items-center justify-center gap-1 shadow-sm transition"
+            >
+              <MessageSquare size={13} className="shrink-0" />
+              <span>WhatsApp</span>
             </button>
             <button
               type="button"
               onClick={handleExploreTours}
-              className="text-[11px] font-bold text-sky hover:text-navy text-center underline decoration-sky/40 py-0.5"
+              className="text-[10px] font-bold text-sky hover:text-navy text-center underline decoration-sky/40"
             >
-              Or Browse Matching Tours →
+              Browse Tours →
             </button>
           </div>
         </form>
@@ -387,17 +406,31 @@ export default function Home() {
                     </span>
                   </div>
 
-                  <div className="mt-auto pt-5 border-t border-slate-100 flex items-center justify-between">
+                  <div className="mt-auto pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
                     <span className="text-xs font-semibold text-emerald-600">
                       ✓ Hill Permit Ready
                     </span>
-                    <button
-                      type="button"
-                      onClick={() => setBookingItem({ name: v.name, vehicle: v })}
-                      className="btn-gold !py-1.5 !px-4 text-xs font-bold shadow-md"
-                    >
-                      Book Cab / Quote
-                    </button>
+                    <div className="flex items-center gap-1.5">
+                      <a
+                        href={`https://wa.me/916230351337?text=${encodeURIComponent(
+                          `Hello Thakur Tour & Travel, I would like to inquire about booking the ${v.name} (${v.seatingCapacity}) for my trip.`
+                        )}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 rounded-xl bg-[#25D366] text-white px-2.5 py-1.5 text-xs font-bold hover:brightness-105 shadow-sm transition"
+                        title="Chat on WhatsApp"
+                      >
+                        <MessageSquare size={13} />
+                        <span>WhatsApp</span>
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => setBookingItem({ name: v.name, vehicle: v })}
+                        className="btn-gold !py-1.5 !px-3 text-xs font-bold shadow-md"
+                      >
+                        Book / Quote
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

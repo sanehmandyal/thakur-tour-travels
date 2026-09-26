@@ -168,23 +168,35 @@ export default function Destinations() {
                     </div>
                   )}
 
-                  {/* Actions (NO PRICES) */}
-                  <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedDestModal(dest)}
-                      className="text-xs font-bold text-navy hover:text-sky transition"
+                  {/* Actions */}
+                  <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap sm:flex-nowrap">
+                    <a
+                      href={`https://wa.me/916230351337?text=${encodeURIComponent(`Hello Thakur Tour & Travels, I want to inquire about planning a trip / booking a cab to ${dest.name} (${dest.location}, ${dest.state}). Please share customized quote.`)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn bg-[#25D366] text-white hover:brightness-105 !py-2 !px-3 text-xs font-bold flex items-center gap-1.5 shadow-sm shrink-0"
+                      title="Chat directly with Admin on WhatsApp"
                     >
-                      View Details
-                    </button>
+                      <MessageSquare size={13} /> WhatsApp
+                    </a>
 
-                    <button
-                      type="button"
-                      onClick={() => setQuoteDestination(dest)}
-                      className="btn-gold !py-2 !px-4 text-xs font-bold shadow-md"
-                    >
-                      Plan Trip Here
-                    </button>
+                    <div className="flex items-center gap-2 flex-1 justify-end">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedDestModal(dest)}
+                        className="text-xs font-bold text-navy hover:text-sky transition hidden sm:inline-block"
+                      >
+                        Details
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setQuoteDestination(dest)}
+                        className="btn-gold !py-2 !px-3.5 text-xs font-bold shadow-md flex-1 sm:flex-initial text-center justify-center"
+                      >
+                        Plan Trip
+                      </button>
+                    </div>
                   </div>
                 </div>
               </article>
