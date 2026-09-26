@@ -41,8 +41,30 @@ app.use(
   morgan('dev')
 );
 
+// Root & Health check endpoints (Resolves 404 on Render ping / root URL)
+app.get('/', (_req, res) => {
+  res.status(200).json({
+    status: 'online',
+    service: 'Thakur Tour & Travels API Server',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      vehicles: '/api/vehicles',
+      destinations: '/api/destinations',
+      tours: '/api/tours',
+      settings: '/api/settings',
+      bookings: '/api/bookings',
+      inquiries: '/api/inquiries'
+    },
+    message: 'Backend server is running smoothly'
+  });
+});
+
+app.head('/', (_req, res) => res.status(200).end());
+app.get('/health', (_req, res) => res.status(200).json({ ok: true, timestamp: new Date().toISOString() }));
+app.get('/api/health', (_req, res) => res.status(200).json({ ok: true, timestamp: new Date().toISOString() }));
+
 const forms = rateLimit({ windowMs: 60 * 60 * 1000, max: 30 });
-app.get('/api/health', (_q, r) => r.json({ ok: true, timestamp: new Date().toISOString() }));
 app.use('/api/auth', rateLimit({ windowMs: 15 * 60 * 1000, max: 60 }), require('./routes/authRoutes'));
 app.post('/api/bookings', forms);
 app.post('/api/inquiries', forms);
