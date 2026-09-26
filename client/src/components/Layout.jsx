@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, MessageSquare, MapPin, Mail, Clock, ShieldCheck, Star, Heart, Award, Home, Compass, Map, Car, Navigation } from 'lucide-react';
+import { Menu, X, Phone, MessageSquare, MapPin, Mail, Clock, ShieldCheck, Star, Heart, Award, Navigation } from 'lucide-react';
 import Logo from './Logo';
 import BookingModal from './BookingModal';
 import { DEFAULT_SETTINGS } from '../services/mockData';
@@ -40,7 +40,7 @@ export default function Layout() {
     return () => window.removeEventListener('ttt_store_change', refreshSettings);
   }, []);
 
-  // Close mobile drawer on route navigation
+  // Close mobile drawer on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -51,27 +51,23 @@ export default function Layout() {
   const whatsappUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent('Hello Thakur Tour & Travel, I want to inquire about a customized tour package / cab rental.')}`;
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-navy selection:bg-gold selection:text-navy pb-16 md:pb-0">
-      {/* Top Notification / Contact Bar (Responsive) */}
-      <div className="bg-navy text-white text-[11px] sm:text-xs border-b border-white/10 py-2 px-3 sm:px-4">
+    <div className="flex min-h-screen flex-col bg-white text-navy selection:bg-gold selection:text-navy pb-16 md:pb-0 w-full overflow-x-hidden max-w-full">
+      {/* Top Notification / Contact Bar (Mobile-safe layout) */}
+      <div className="bg-navy text-white text-[11px] sm:text-xs border-b border-white/10 py-1.5 px-3 sm:px-4 w-full">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-2">
-          <div className="flex items-center gap-2 sm:gap-4 overflow-hidden text-ellipsis whitespace-nowrap">
+          <div className="flex items-center gap-2 truncate">
             <span className="hidden md:inline-flex items-center gap-1.5 text-gold font-medium">
-              <Award size={13} className="shrink-0" /> Govt. Recognized Himachal &amp; North India Travel Partner
+              <Award size={13} className="shrink-0" /> Govt. Recognized Himachal Partner
             </span>
-            <span className="inline-flex items-center gap-1 text-white/80">
-              <Clock size={12} className="text-sky shrink-0" /> 24x7 Station Pickup &amp; Mountain Assistance
+            <span className="inline-flex items-center gap-1 text-white/85 truncate">
+              <Clock size={12} className="text-sky shrink-0" /> 24x7 Station Pickup &amp; Assistance
             </span>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-5 shrink-0">
+          <div className="flex items-center gap-3 shrink-0">
             <a href={`tel:${cleanPhone}`} className="inline-flex items-center gap-1 text-white hover:text-gold transition font-semibold">
               <Phone size={12} className="text-gold" />
               <span>{settings.phone || '+91 62303 51337'}</span>
-            </a>
-            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="hidden sm:inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 transition font-semibold">
-              <MessageSquare size={12} />
-              <span>WhatsApp</span>
             </a>
             <Link to="/admin/login" className="text-white/60 hover:text-white transition text-[10px] sm:text-[11px] underline">
               Admin
@@ -81,9 +77,9 @@ export default function Layout() {
       </div>
 
       {/* Main Navigation Header */}
-      <header className="sticky top-0 z-50 border-b border-navy/10 bg-white/95 backdrop-blur-md shadow-xs">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 py-2.5 sm:py-3.5">
-          <Link to="/" aria-label="Thakur Tour & Travel home" className="shrink-0 flex items-center">
+      <header className="sticky top-0 z-50 border-b border-navy/10 bg-white/95 backdrop-blur-md shadow-xs w-full">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-3 sm:px-6 py-2 sm:py-3.5">
+          <Link to="/" aria-label="Thakur Tour & Travel home" className="shrink-0 flex items-center min-w-0">
             <Logo />
           </Link>
 
@@ -106,12 +102,12 @@ export default function Layout() {
             ))}
           </nav>
 
-          {/* CTA & Mobile Toggle */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Header Action Buttons */}
+          <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
               onClick={() => setQuickQuoteOpen(true)}
-              className="btn-gold !py-1.5 sm:!py-2 !px-3 sm:!px-4 text-[11px] sm:text-xs font-bold shadow-md hover:shadow-lg"
+              className="hidden sm:inline-flex btn-gold !py-1.5 sm:!py-2 !px-3 sm:!px-4 text-xs font-bold shadow-md hover:shadow-lg"
             >
               Get Free Quote
             </button>
@@ -129,7 +125,7 @@ export default function Layout() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="border-t border-navy/10 bg-white px-4 py-4 lg:hidden animate-in slide-in-from-top-3 duration-200 shadow-xl">
+          <div className="border-t border-navy/10 bg-white px-4 py-4 lg:hidden animate-in slide-in-from-top-3 duration-200 shadow-xl w-full">
             <nav className="flex flex-col space-y-1">
               {NAV_LINKS.map(({ to, label }) => (
                 <NavLink
@@ -167,14 +163,14 @@ export default function Layout() {
       </header>
 
       {/* Main Page Content */}
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         <Outlet />
       </main>
 
       {/* Footer Section */}
-      <footer className="mt-16 sm:mt-24 bg-navy text-white">
+      <footer className="mt-16 sm:mt-24 bg-navy text-white w-full overflow-x-hidden">
         {/* Trust Badges Strip */}
-        <div className="border-b border-white/10 bg-navy/90 py-6 px-4">
+        <div className="border-b border-white/10 bg-navy/90 py-6 px-4 w-full">
           <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div className="flex items-center gap-3">
               <div className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-gold/20 text-gold">

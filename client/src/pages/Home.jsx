@@ -83,36 +83,37 @@ export default function Home() {
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
 
-        <div className="mx-auto max-w-7xl px-4 pt-16 pb-28 sm:pt-24 sm:pb-36 lg:pt-32 text-white">
+        <div className="mx-auto max-w-7xl px-4 pt-12 pb-24 sm:pt-20 sm:pb-32 lg:pt-28 text-white w-full">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl w-full"
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-gold border border-gold/30 mb-6">
-              <Sparkles size={14} /> 100% Customized Trips • Verified Mountain Drivers
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 backdrop-blur-md px-3 sm:px-4 py-1 text-[11px] sm:text-xs font-semibold text-gold border border-gold/30 mb-4 sm:mb-6 max-w-full">
+              <Sparkles size={13} className="shrink-0" />
+              <span>100% Customized Trips • Mountain Drivers</span>
             </div>
 
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl sm:leading-[1.15]">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-snug sm:leading-tight">
               Experience Himachal &amp; North India with Local Mountain Experts
             </h1>
 
-            <p className="mt-5 text-base sm:text-lg text-white/90 leading-relaxed max-w-2xl">
+            <p className="mt-3 sm:mt-5 text-xs sm:text-base text-white/90 leading-relaxed max-w-2xl">
               Handcrafted private tour packages, scenic road trips, and luxury taxi services across Shimla, Manali, Spiti Valley, Dharamshala, Dalhousie, and Amritsar.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3">
               <button
                 type="button"
                 onClick={() => setBookingItem({ title: 'General Custom Trip' })}
-                className="btn-gold !py-3 !px-7 text-sm font-bold shadow-xl hover:shadow-2xl"
+                className="btn-gold !py-2.5 sm:!py-3 !px-5 sm:!px-7 text-xs sm:text-sm font-bold shadow-xl hover:shadow-2xl"
               >
                 Plan My Custom Trip
               </button>
               <Link
                 to="/tours"
-                className="btn bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white/25 !py-3 !px-6 text-sm font-semibold"
+                className="btn bg-white/15 backdrop-blur-md border border-white/30 text-white hover:bg-white/25 !py-2.5 sm:!py-3 !px-5 sm:!px-6 text-xs sm:text-sm font-semibold"
               >
                 Explore Tour Packages
               </Link>
@@ -120,22 +121,22 @@ export default function Home() {
           </motion.div>
 
           {/* Trust Stat Badges */}
-          <div className="mt-14 pt-8 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl">
+          <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-white/15 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-4xl">
             <div>
-              <p className="text-2xl sm:text-3xl font-black text-gold">15+ Years</p>
-              <p className="text-xs text-white/75 mt-0.5">Himalayan Expertise</p>
+              <p className="text-xl sm:text-3xl font-black text-gold">15+ Years</p>
+              <p className="text-[11px] sm:text-xs text-white/75 mt-0.5">Himalayan Expertise</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-black text-gold">12,500+</p>
-              <p className="text-xs text-white/75 mt-0.5">Happy Guests Served</p>
+              <p className="text-xl sm:text-3xl font-black text-gold">12,500+</p>
+              <p className="text-[11px] sm:text-xs text-white/75 mt-0.5">Happy Guests</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-black text-gold">50+ Cabs</p>
-              <p className="text-xs text-white/75 mt-0.5">Modern Well-Maintained Fleet</p>
+              <p className="text-xl sm:text-3xl font-black text-gold">50+ Cabs</p>
+              <p className="text-[11px] sm:text-xs text-white/75 mt-0.5">Modern Fleet</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-black text-gold">4.9 / 5</p>
-              <p className="text-xs text-white/75 mt-0.5">Customer Satisfaction</p>
+              <p className="text-xl sm:text-3xl font-black text-gold">4.9 / 5</p>
+              <p className="text-[11px] sm:text-xs text-white/75 mt-0.5">Customer Rating</p>
             </div>
           </div>
         </div>

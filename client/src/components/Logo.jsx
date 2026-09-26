@@ -1,11 +1,11 @@
-export default function Logo({ dark = false, className = 'h-12' }) {
+export default function Logo({ dark = false, className = 'h-8 sm:h-11' }) {
   const textColor = dark ? '#FFFFFF' : '#0B2545';
   const subtitleColor = dark ? '#F59E0B' : '#0284C7';
   const goldLight = '#FDE047';
   const goldMain = '#F59E0B';
 
   return (
-    <div className="inline-flex items-center gap-3.5 select-none group cursor-pointer">
+    <div className="inline-flex items-center gap-2 sm:gap-3 select-none group cursor-pointer shrink-0">
       {/* High-Resolution Emblem with Name Embedded inside Shield */}
       <svg
         viewBox="0 0 140 140"
@@ -98,28 +98,24 @@ export default function Logo({ dark = false, className = 'h-12' }) {
 
       {/* Brand Typography Header */}
       <div className="flex flex-col justify-center leading-none">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           <span
-            className="font-display text-2xl sm:text-3xl font-black tracking-tight"
+            className="font-display text-lg sm:text-2xl font-black tracking-tight"
             style={{ color: textColor }}
           >
             THAKUR
           </span>
-          <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
+          <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
         </div>
 
-        <div className="flex items-center gap-1.5 mt-1">
+        <div className="flex items-center gap-1 mt-0.5">
           <span
-            className="text-xs sm:text-[13px] font-extrabold uppercase tracking-[0.22em]"
+            className="text-[9px] sm:text-[11px] font-extrabold uppercase tracking-[0.18em]"
             style={{ color: subtitleColor }}
           >
             TOUR &amp; TRAVELS
           </span>
         </div>
-
-        <span className="text-[9px] font-bold text-slate-400 tracking-[0.12em] mt-1 hidden sm:block uppercase">
-          Himachal • Punjab • Luxury Cabs
-        </span>
       </div>
     </div>
   );
