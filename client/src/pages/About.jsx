@@ -106,10 +106,10 @@ export default function About() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-5 shadow-2xl border border-navy/10 max-w-xs hidden sm:block">
+            <div className="mt-4 sm:absolute sm:bottom-4 sm:left-4 rounded-2xl bg-white p-4 shadow-xl border border-navy/10 max-w-xs">
               <div className="flex items-center gap-2 text-gold">
-                <Star size={18} fill="currentColor" />
-                <span className="font-extrabold text-navy text-lg">4.9 / 5 on Google</span>
+                <Star size={16} fill="currentColor" />
+                <span className="font-extrabold text-navy text-sm sm:text-base">4.9 / 5 on Google</span>
               </div>
               <p className="mt-1 text-[11px] text-navy/70">Based on 2,480+ verified traveler reviews on Google Maps &amp; travel portals.</p>
             </div>

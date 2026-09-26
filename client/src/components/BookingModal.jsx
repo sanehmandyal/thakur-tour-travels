@@ -60,12 +60,12 @@ export default function BookingModal({ tour, vehicle, destination, initialValues
       onClick={onClose}
     >
       <div
-        className="my-8 w-full max-w-xl rounded-3xl bg-white p-6 md:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200"
+        className="my-auto w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl bg-white p-5 sm:p-7 md:p-8 shadow-2xl relative animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 h-9 w-9 rounded-full bg-slate-100 grid place-items-center text-navy/70 hover:bg-slate-200 transition"
+          className="absolute top-4 right-4 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-slate-100 grid place-items-center text-navy/70 hover:bg-slate-200 transition"
           aria-label="Close"
         >
           <X size={18} />
